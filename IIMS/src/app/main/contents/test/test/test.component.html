@@ -13,3 +13,21 @@
     <mat-tab label="人資部" class="mat-tab-label mat-ink-bar"> Content 3 </mat-tab>
     <mat-tab label="公關部" class="mat-tab-label mat-ink-bar"> Content 3 </mat-tab>
 </mat-tab-group>
+
+<div>
+    <mat-form-field>
+        <input matInput placeholder="name" [(ngModel)]="name">
+    </mat-form-field>            
+    <button mat-raised-button class="example-add-tab-button" (click)="addTab()"> 新增部門 </button>
+</div>
+<mat-tab-group [selectedIndex]="selected.value" (selectedIndexChange)="selected.setValue($event)">
+    <mat-tab label="部門簡介" class="mat-tab-label mat-ink-bar" disabled></mat-tab>
+    <mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab">{{tab}} 部門簡介
+        <div>
+            <textarea [(ngModel)]="content"></textarea>
+            <p>{{contents}}</p>
+        </div>
+        <button mat-raised-button class="example-delete-tab-button" color="primary" (click)="submit($event)"> 儲存 </button>
+        <button mat-raised-button class="example-delete-tab-button" [disabled]="tabs.length === 0" (click)="removeTab(index)"> 刪除部門 </button>
+    </mat-tab>
+</mat-tab-group>
