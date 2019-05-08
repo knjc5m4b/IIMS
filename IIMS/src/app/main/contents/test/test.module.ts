@@ -1,36 +1,32 @@
 import { NgModule } from '@angular/core';
-import { TestComponent } from './test/test.component';
 import { MaterialModule } from 'src/app/common/Material.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { YorikoTestComponent } from './yoriko/yorikotest.component';
-import { ZackTestComponent } from './zack/zacktest.component';
-import { SindyTestComponent } from './sindy/sindytest.component';
+import { Routes, RouterModule } from '@angular/router';
+import { ViewModule } from './view/view.module';
+import { ViewComponent } from './view/view.component';
 
+const Routes: Routes = [
+    {   path: 'view',
+        // loadChildren: './view/view.module#ViewModule'
+        component: ViewComponent
+    },
+    {   path: '',
+        redirectTo: '/test',
+        pathMatch: 'full'
+    },
+  ];
 @NgModule ({
     imports: [
+        RouterModule.forRoot(Routes),
         MaterialModule,
         ReactiveFormsModule,
         FormsModule,
-        CommonModule
+        CommonModule,
+        ViewModule
     ],
     exports: [
-        TestComponent,
-        YorikoTestComponent,
-        ZackTestComponent,
-        SindyTestComponent
-    ],
-    entryComponents: [
-        TestComponent,
-        YorikoTestComponent,
-        ZackTestComponent,
-        SindyTestComponent
-    ],
-    declarations: [
-        TestComponent,
-        YorikoTestComponent,
-        ZackTestComponent,
-        SindyTestComponent
+        RouterModule,
     ]
 })
 export class TestModule {

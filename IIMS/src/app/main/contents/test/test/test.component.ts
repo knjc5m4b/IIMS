@@ -1,14 +1,19 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MatSidenav } from '@angular/material';
 
 @Component ({
     selector: 'app-test-component',
-    templateUrl: 'test.component.html',
-    styleUrls: ['test.component.css']
+    templateUrl: './test.component.html',
+    styleUrls: ['./test.component.css']
 })
 export class TestComponent {
     @Input() name: string;
     @Input() content: string;
+    @ViewChild('sidenav') sidenav: MatSidenav;
+
+    reason = '';
+
 
     tabIndex = 1;
     contents = '';

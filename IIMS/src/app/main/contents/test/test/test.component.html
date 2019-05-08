@@ -1,33 +1,57 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 <!-- test -->
 <!-- <mat-tab-group>
         <mat-tab label="公司簡介" class="mat-tab-label mat-ink-bar" name='cpmpany'></mat-tab>
         <mat-tab label="部門簡介" class="mat-tab-label mat-ink-bar" name='object'></mat-tab>
 </mat-tab-group> -->
+<mat-toolbar>
+    <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>{{sidenav.opened ? 'menu' : 'menu'}}</mat-icon>
+    </button>
+    IIMS
+    <span class="toolbar-seprator"></span>
 
-<mat-tab-group [(selectedIndex)]="tabIndex">
-    <mat-tab label="部門簡介" class="mat-tab-label mat-ink-bar" disabled></mat-tab>
-    <mat-tab label="財務部" class="mat-tab-label mat-ink-bar"> Content 1 </mat-tab>
-    <mat-tab label="業務部" class="mat-tab-label mat-ink-bar"> Content 2 </mat-tab>
-    <mat-tab label="研發部" class="mat-tab-label mat-ink-bar"> Content 3 </mat-tab>
-    <mat-tab label="資訊部" class="mat-tab-label mat-ink-bar"> Content 3 </mat-tab>
-    <mat-tab label="人資部" class="mat-tab-label mat-ink-bar"> Content 3 </mat-tab>
-    <mat-tab label="公關部" class="mat-tab-label mat-ink-bar"> Content 3 </mat-tab>
-</mat-tab-group>
+    <button mat-icon-button>
+        <mat-icon>message</mat-icon>
+    </button>
+    <button mat-icon-button>
+        <mat-icon>exit_to_app</mat-icon>
+    </button>
+</mat-toolbar>
+<mat-sidenav-container (backdropClick)="sidenav.close()">
+    <mat-sidenav class="example-container" #sidenav (keydown.escape)="sidenav.close()" disableClose mode="over"></mat-sidenav>
 
-<div>
-    <mat-form-field>
-        <input matInput placeholder="name" [(ngModel)]="name">
-    </mat-form-field>            
-    <button mat-raised-button class="example-add-tab-button" (click)="addTab()"> 新增部門 </button>
-</div>
-<mat-tab-group [selectedIndex]="selected.value" (selectedIndexChange)="selected.setValue($event)">
-    <mat-tab label="部門簡介" class="mat-tab-label mat-ink-bar" disabled></mat-tab>
-    <mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab">{{tab}} 部門簡介
+    <mat-sidenav-content>
+        <mat-card-content>
+            123
+        </mat-card-content>
+        <mat-tab-group [(selectedIndex)]="tabIndex">
+            <mat-tab label="部門簡介" class="mat-tab-label mat-ink-bar" disabled></mat-tab>
+            <mat-tab label="財務部" class="mat-tab-label mat-ink-bar"> Content 1 </mat-tab>
+            <mat-tab label="業務部" class="mat-tab-label mat-ink-bar"> Content 2 </mat-tab>
+            <mat-tab label="研發部" class="mat-tab-label mat-ink-bar"> Content 3 </mat-tab>
+            <mat-tab label="資訊部" class="mat-tab-label mat-ink-bar"> Content 3 </mat-tab>
+            <mat-tab label="人資部" class="mat-tab-label mat-ink-bar"> Content 3 </mat-tab>
+            <mat-tab label="公關部" class="mat-tab-label mat-ink-bar"> Content 3 </mat-tab>
+        </mat-tab-group>
+
         <div>
-            <textarea [(ngModel)]="content"></textarea>
-            <p>{{contents}}</p>
+            <mat-form-field>
+                <input matInput placeholder="name" [(ngModel)]="name">
+            </mat-form-field>            
+            <button mat-raised-button class="example-add-tab-button" (click)="addTab()"> 新增部門 </button>
         </div>
-        <button mat-raised-button class="example-delete-tab-button" color="primary" (click)="submit($event)"> 儲存 </button>
-        <button mat-raised-button class="example-delete-tab-button" [disabled]="tabs.length === 0" (click)="removeTab(index)"> 刪除部門 </button>
-    </mat-tab>
-</mat-tab-group>
+        <mat-tab-group [selectedIndex]="selected.value" (selectedIndexChange)="selected.setValue($event)">
+            <mat-tab label="部門簡介" class="mat-tab-label mat-ink-bar" disabled></mat-tab>
+            <mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab">{{tab}} 部門簡介
+                <div>
+                    <textarea [(ngModel)]="content"></textarea>
+                    <p>{{contents}}</p>
+                </div>
+                <button mat-raised-button class="example-delete-tab-button" color="primary" (click)="submit($event)"> 儲存 </button>
+                <button mat-raised-button class="example-delete-tab-button" [disabled]="tabs.length === 0" (click)="removeTab(index)"> 刪除部門 </button>
+            </mat-tab>
+        </mat-tab-group>
+    </mat-sidenav-content>
+</mat-sidenav-container>
