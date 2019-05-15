@@ -18,6 +18,32 @@
   </li>
 </ul> -->
 
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<div class="mat-app-background">
+<mat-toolbar>
+        <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon>{{sidenav.opened ? 'menu' : 'menu'}}</mat-icon>
+        </button>
+        IIMS
+        <span class="toolbar-seprator"></span>
+            
+        <button mat-icon-button>
+        <mat-icon>message</mat-icon>
+        </button>
+        <button mat-icon-button>
+                <mat-icon>exit_to_app</mat-icon>
+        </button>
+</mat-toolbar>
+<mat-sidenav-container (backdropClick)="sidenav.close()">
+        <mat-sidenav class="example-container" #sidenav (keydown.escape)="sidenav.close()" disableClose mode="over"></mat-sidenav>
+        <mat-sidenav-content>
+               <!-- <app-test-component></app-test-component>
+               <app-sindytest-component></app-sindytest-component> -->
+               <router-outlet></router-outlet>
+        </mat-sidenav-content>
+</mat-sidenav-container>
+</div>
+
 <router-outlet></router-outlet>
 <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
-

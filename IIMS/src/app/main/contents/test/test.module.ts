@@ -8,8 +8,7 @@ import { ViewComponent } from './view/view.component';
 
 const Routes: Routes = [
     {   path: 'view',
-        // loadChildren: './view/view.module#ViewModule'
-        component: ViewComponent
+        loadChildren: './view/view.module#ViewModule'
     },
     {   path: '',
         redirectTo: '/test',
@@ -18,7 +17,8 @@ const Routes: Routes = [
   ];
 @NgModule ({
     imports: [
-        RouterModule.forRoot(Routes),
+        // RouterModule.forRoot(Routes),
+        RouterModule.forChild(Routes),
         MaterialModule,
         ReactiveFormsModule,
         FormsModule,

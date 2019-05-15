@@ -17,12 +17,13 @@ import { MaterialModule } from 'src/app/common/Material.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { CommonModule } from '@angular/common';
+import { TabDialogComponent } from '../test/tab-dialog/tab-dialog.component';
 
 
 
 const Routes: Routes = [
 
-    {   path: 'test',
+    {   path: 'angela',
         component: TestComponent
     },
     {   path: 'yoriko',
@@ -52,14 +53,15 @@ const Routes: Routes = [
         ZackTestComponent,
         SindyTestComponent,
         RouterModule,
-        ViewComponent
+        ViewComponent,
     ],
     entryComponents: [
         TestComponent,
         YorikoTestComponent,
         ZackTestComponent,
         SindyTestComponent,
-        ViewComponent
+        ViewComponent,
+        // TabDialogComponent
     ],
     declarations: [
         TestComponent,
