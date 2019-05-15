@@ -36,7 +36,14 @@
         </button>
 </mat-toolbar>
 <mat-sidenav-container (backdropClick)="sidenav.close()">
-        <mat-sidenav class="example-container" #sidenav (keydown.escape)="sidenav.close()" disableClose mode="over"></mat-sidenav>
+        <mat-sidenav class="example-container" #sidenav (keydown.escape)="sidenav.close()" disableClose mode="over">
+          <div><a class="main-nav__link" routerLink="/editor" routerLinkActive="active">editor</a></div>
+          <div><a class="main-nav__link" routerLink="/test" routerLinkActive="active">test</a></div>
+          <div><a class="main-nav__link" routerLink="/angela" routerLinkActive="active">angela</a></div>
+          <div><a class="main-nav__link" routerLink="/yoriko" routerLinkActive="active">yoriko</a></div>
+          <div><a class="main-nav__link" routerLink="/sindy" routerLinkActive="active">sindy</a></div>
+          <div><a class="main-nav__link" routerLink="/zack" routerLinkActive="active">zack</a></div>
+        </mat-sidenav>
         <mat-sidenav-content>
                <!-- <app-test-component></app-test-component>
                <app-sindytest-component></app-sindytest-component> -->
@@ -45,5 +52,5 @@
 </mat-sidenav-container>
 </div>
 
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->
 <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
