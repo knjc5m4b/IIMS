@@ -1,0 +1,13 @@
+
+    <div class="content-container">
+        <div class="swiper-container" [swiper]="config">
+            <div class="swiper-wrapper">
+                <div *ngFor="let slide of slides" class="swiper-slide">{{slide}}
+                <img width="300" src="assets/image/cat.jpg"></div>
+            </div> 
+            
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+    </div>

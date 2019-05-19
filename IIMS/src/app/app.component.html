@@ -1,4 +1,4 @@
-<!--The content below is only a placeholder and can be replaced.-->
+<!-- The content below is only a placeholder and can be replaced. -->
 <!-- <div style="text-align:center"> -->
   <!-- <h1>
     Welcome to {{ title }}!
@@ -35,7 +35,7 @@
                 <mat-icon>exit_to_app</mat-icon>
         </button>
 </mat-toolbar>
-<mat-sidenav-container (backdropClick)="sidenav.close()">
+<mat-sidenav-container (backdropClick)="sidenav.close()" >
         <mat-sidenav class="example-container" #sidenav (keydown.escape)="sidenav.close()" disableClose mode="over">
           <div><a class="main-nav__link" routerLink="/postjob" routerLinkActive="active">postjob</a></div>
           <div><a class="main-nav__link" routerLink="/test" routerLinkActive="active">test</a></div>
