@@ -10,3 +10,18 @@
         <div class="swiper-pagination"></div>
     </div>
     </div>
+
+    <div>            
+        <button mat-raised-button class="example-add-tab-button" (click)="opendialog()"> 新增部門 </button>
+    </div>
+        <mat-tab-group [selectedIndex]="selected.value" (selectedIndexChange)="selected.setValue($event)">
+            <mat-tab label="部門簡介" class="mat-tab-label mat-ink-bar" disabled></mat-tab>
+            <mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab">
+                <div>{{tab}} 部門簡介</div>
+                <div>
+                    <img [src]="tabimage" height="200" assept="img/*"> <br>
+                    <label>{{tabcontent}}</label>
+                </div>
+                <button mat-raised-button class="example-delete-tab-button" [disabled]="tabs.length === 0" (click)="removeTab(index)"> 刪除部門 </button>
+            </mat-tab>
+        </mat-tab-group>

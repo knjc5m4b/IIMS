@@ -21,7 +21,7 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <div class="mat-app-background">
-<mat-toolbar>
+<mat-toolbar class="fixed-header">
         <button mat-icon-button (click)="sidenav.toggle()">
             <mat-icon>{{sidenav.opened ? 'menu' : 'menu'}}</mat-icon>
         </button>
@@ -35,8 +35,8 @@
                 <mat-icon>exit_to_app</mat-icon>
         </button>
 </mat-toolbar>
-<mat-sidenav-container (backdropClick)="sidenav.close()" >
-        <mat-sidenav class="example-container" #sidenav (keydown.escape)="sidenav.close()" disableClose mode="over">
+<mat-sidenav-container (backdropClick)="sidenav.close()" fullscreen >
+        <mat-sidenav class="example-container" #sidenav (keydown.escape)="sidenav.close()" disableClose mode="over" >
           <div><a class="main-nav__link" routerLink="/postjob" routerLinkActive="active">postjob</a></div>
           <div><a class="main-nav__link" routerLink="/test" routerLinkActive="active">test</a></div>
           <div><a class="main-nav__link" routerLink="/angela" routerLinkActive="active">angela</a></div>

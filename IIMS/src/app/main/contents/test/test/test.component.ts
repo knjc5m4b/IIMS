@@ -1,7 +1,7 @@
 import { Component, Input, ViewChild, AfterViewInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatSidenav, MatDialog, MatDialogRef } from '@angular/material';
-import { TabDialogComponent } from './tab-dialog/tab-dialog.component';
+import { TabDialogComponent } from '../../Home/tab-dialog/tab-dialog.component';
 import Swiper from 'swiper';
 
 @Component ({
@@ -62,17 +62,17 @@ export class TestComponent {
         }
     }
 
-    opendialog() {
-        const dialogRef = this.dialog.open(TabDialogComponent, {
-            width: '250px',
-            data: {
-                tabname: this.tabname,
-                tabcontent: this.tabcontent
-            }
-        });
-        dialogRef.afterClosed().subscribe(res => {
-            this.tabname = res;
-            this.tabcontent = res;
-        });
-    }
+    // opendialog() {
+    //     const dialogRef = this.dialog.open(TabDialogComponent, {
+    //         width: '250px',
+    //         data: {
+    //             tabname: this.tabname,
+    //             tabcontent: this.tabcontent
+    //         }
+    //     });
+    //     dialogRef.afterClosed().subscribe(res => {
+    //         this.tabname = res;
+    //         this.tabcontent = res;
+    //     });
+    // }
 }

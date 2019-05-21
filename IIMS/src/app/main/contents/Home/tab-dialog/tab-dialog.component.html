@@ -1,0 +1,18 @@
+<div>
+    <mat-form-field>
+        <input matInput placeholder="name" [(ngModel)]="tabname">
+    </mat-form-field>
+</div>
+<div>
+    <input type="file" placeholder="image" (change)="onSelectFile($event)">
+    <img *ngIf="tabimage" [src]="tabimage" height="200" assept="img/*">
+</div>
+<div>
+    <mat-form-field>
+        <textarea matInput placeholder="content" [(ngModel)]="tabcontent" style="height: 80px"></textarea>
+    </mat-form-field>
+</div>
+<div style="text-align:right">
+    <button class="btn-cancel" mat-button (click)="cancel()">cancel</button> | 
+    <button class="btn-confirm" mat-button (click)="confirm()">confirm</button>
+</div>

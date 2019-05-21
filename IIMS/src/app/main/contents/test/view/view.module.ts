@@ -17,7 +17,7 @@ import { MaterialModule } from 'src/app/common/Material.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { CommonModule } from '@angular/common';
-import { TabDialogComponent } from '../test/tab-dialog/tab-dialog.component';
+// import { TabDialogComponent } from '../../Home/tab-dialog/tab-dialog.component';
 
 
 

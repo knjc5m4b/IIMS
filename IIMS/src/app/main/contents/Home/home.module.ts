@@ -3,10 +3,11 @@ import { HomeComponent } from './home.component';
 import { NgModule } from '@angular/core';
 
 import { Routes, RouterModule } from '@angular/router';
-
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/common/Material.module';
 // import { SwiperModule } from 'angular2-useful-swiper';
 import { SwiperModule, SWIPER_CONFIG, SwiperConfigInterface } from 'ngx-swiper-wrapper';
+import { TabDialogComponent } from './tab-dialog/tab-dialog.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   observer: true,
@@ -14,7 +15,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     // threshold: 50,
     spaceBetween: 5,
     slidesPerView: 'auto',
-    // centeredSlides: true,
+    centeredSlides: true,
     navigation: true,
     autoplay: true,
     pagination: {
@@ -37,14 +38,22 @@ const Routes: Routes = [
 
 @NgModule({
     declarations: [
-        HomeComponent
+        HomeComponent,
+        TabDialogComponent
     ],
     imports: [
       RouterModule.forRoot(Routes),
       MaterialModule,
       SwiperModule,
+      ReactiveFormsModule,
+      FormsModule,
     ],
     exports: [
+      HomeComponent,
+    ],
+    entryComponents: [
+      HomeComponent,
+      TabDialogComponent
     ],
     providers: [
       {
