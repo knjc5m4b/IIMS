@@ -37,8 +37,6 @@ const appRoutes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    TestModule,
-    PostJobModule,
     HomeModule
   ],
   exports: [
