@@ -49,11 +49,11 @@ export class HomeComponent {
             }
         });
         dialogRef.afterClosed().subscribe(res => {
-            this.tabname = res;
-            this.tabcontent = res[0];
-            this.tabimage = res[1];
-
-            console.log(res);
+            if (res) {
+                this.tabcontent = res[0];
+                this.tabimage = res[1];
+            }
+            // console.log(res);
         });
     }
 }

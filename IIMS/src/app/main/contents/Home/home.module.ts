@@ -8,11 +8,12 @@ import { MaterialModule } from 'src/app/common/Material.module';
 // import { SwiperModule } from 'angular2-useful-swiper';
 import { SwiperModule, SWIPER_CONFIG, SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { TabDialogComponent } from './tab-dialog/tab-dialog.component';
+import { FileDropModule } from 'ngx-file-drop';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
-  observer: true,
+    observer: true,
     direction: 'horizontal',
-    // threshold: 50,
+    threshold: 50,
     spaceBetween: 5,
     slidesPerView: 'auto',
     centeredSlides: true,
@@ -47,6 +48,7 @@ const Routes: Routes = [
       SwiperModule,
       ReactiveFormsModule,
       FormsModule,
+      FileDropModule
     ],
     exports: [
       HomeComponent,

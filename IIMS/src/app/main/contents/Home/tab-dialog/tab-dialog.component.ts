@@ -1,5 +1,6 @@
 import { Component, Input, Inject } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { UploadEvent, FileSystemFileEntry, FileSystemDirectoryEntry, UploadFile } from 'ngx-file-drop';
 
 @Component({
     selector: 'app-tab-dialog',
@@ -12,6 +13,7 @@ export class TabDialogComponent {
 
     tabimage: any;
     tabdata = [];
+    files: UploadFile[] = [];
 
     constructor(
         private dialogRef: MatDialogRef<TabDialogComponent>,
@@ -48,4 +50,21 @@ export class TabDialogComponent {
             };
         }
     }
+
+    // public dropped(event: UploadEvent) {
+    //     this.files = event.files;
+    //     for (const droppedFile of event.files) {
+    //       if (droppedFile.fileEntry.isFile) {
+    //         const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
+    //         fileEntry.file((file: File) => {
+    //           // Here you can access the real file
+    //           console.log(droppedFile.relativePath, file);
+    //         });
+    //       } else {
+    //         // It was a directory (empty directories are added, otherwise only files)
+    //         const fileEntry = droppedFile.fileEntry as FileSystemDirectoryEntry;
+    //         console.log(droppedFile.relativePath, fileEntry);
+    //       }
+    //     }
+    //   }
 }

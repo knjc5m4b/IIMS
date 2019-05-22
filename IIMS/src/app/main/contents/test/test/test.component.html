@@ -5,7 +5,7 @@
         <mat-tab label="部門簡介" class="mat-tab-label mat-ink-bar" name='object'></mat-tab>
 </mat-tab-group> -->
 
-        <div>
+        <!-- <div>
             <mat-form-field>
                 <input matInput placeholder="name" [(ngModel)]="name">
             </mat-form-field>            
@@ -22,4 +22,22 @@
                 <button mat-raised-button class="example-delete-tab-button" color="primary" (click)="submit($event)"> 儲存 </button>
                 <button mat-raised-button class="example-delete-tab-button" [disabled]="tabs.length === 0" (click)="removeTab(index)"> 刪除部門 </button>
             </mat-tab>
-        </mat-tab-group>
+        </mat-tab-group> -->
+
+        <!-- <form action="/file-upload" class="dropzone" id="my-awesome-dropzone">
+            <div class="test dropzone" file="image" accept="[image/png, image/jpeg, image/gif]">
+                <span class="text">Drag & Drop Here!</span>
+                <input type="file" class="dropzone"  placeholder="image">
+            </div> 
+        </form> -->
+
+        <!-- <div ngFileDropzone (fileDrop)="addFile($event)" [ngClass]="{'hover': isHover }" (dragenter)="isHover = true" (dragleave)="isHover = false" (drop)="isHover = false">
+            <md-icon class="big">file_upload</md-icon>
+          </div>
+          
+          <h2 *ngIf="files.length">Dropped files</h2>
+          <ul>
+            <li *ngFor="let file of files">
+              {{file.name}} ({{file.size}} bytes)
+            </li>
+        </ul> -->

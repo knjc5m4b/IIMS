@@ -19,7 +19,7 @@
             <mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab">
                 <div>{{tab}} 部門簡介</div>
                 <div>
-                    <img [src]="tabimage" height="200" assept="img/*"> <br>
+                    <img *ngIf="tabimage" [src]="tabimage" height="200" assept="img/*"> <br>
                     <label>{{tabcontent}}</label>
                 </div>
                 <button mat-raised-button class="example-delete-tab-button" [disabled]="tabs.length === 0" (click)="removeTab(index)"> 刪除部門 </button>

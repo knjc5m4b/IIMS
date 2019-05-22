@@ -3,8 +3,19 @@
         <input matInput placeholder="name" [(ngModel)]="tabname">
     </mat-form-field>
 </div>
-<div>
-    <input type="file" placeholder="image" (change)="onSelectFile($event)">
+<div >
+    <!-- <file-drop dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)" >
+            <span>optional content (don't set dropZoneLabel then)</span>
+    </file-drop> -->
+        <div ng-controller="MainController">
+        <div class="dropzone" file-dropzone="[image/png, image/jpeg, image/gif]" file="image" file-name="imageFileName" data-max-file-size="3">
+          <span>Drop Image Here</span>
+        </div>
+        <div class="image-container">
+          <!-- <img ng-src={{image}} />
+          <span class="file-name">{{imageFileName}}</span> -->
+        </div>    
+        <input type="file" class="dropzone" file-dropzone="[image/png, image/jpeg, image/gif]" file="image" placeholder="image" (change)="onSelectFile($event)">
     <img *ngIf="tabimage" [src]="tabimage" height="200" assept="img/*">
 </div>
 <div>

@@ -4698,6 +4698,13 @@ ng2-overlay@^0.7.0:
   resolved "https://registry.yarnpkg.com/ng2-overlay/-/ng2-overlay-0.7.2.tgz#6d26296b0b129ea8a7c6bd98bd7def831466dccc"
   integrity sha1-bSYpawsSnqinxr2YvX3vgxRm3Mw=
 
+ngx-file-drop@^6.0.1:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/ngx-file-drop/-/ngx-file-drop-6.0.1.tgz#637b86e8c6a2aa80faa2899ea3db404ec214ae5a"
+  integrity sha512-+9VC/JgBwaonoiUFdd3lROvZsVtPnoTvvm1oK5bITOuqff4lE7wfUhbdm+0ZyO14aa7hwgGHuT2MBPQq4369oA==
+  dependencies:
+    tslib "^1.9.0"
+
 ngx-swiper-wrapper@^7.2.1:
   version "7.2.1"
   resolved "https://registry.yarnpkg.com/ngx-swiper-wrapper/-/ngx-swiper-wrapper-7.2.1.tgz#bc0c99c62b1b6186f2038e0f60035c993e8241f9"
