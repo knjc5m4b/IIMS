@@ -12,3 +12,7 @@ mat-sidenav {
     /* background-color: aquamarine; */
     min-width: 200px;
 }
+
+.body {
+    margin: 80px 0;
+}

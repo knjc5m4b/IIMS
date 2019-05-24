@@ -34,9 +34,12 @@
         <button mat-icon-button>
                 <mat-icon>exit_to_app</mat-icon>
         </button>
+        <button mat-icon-button routerLink="/home">
+          <mat-icon >home</mat-icon>
+        </button>
 </mat-toolbar>
 <mat-sidenav-container (backdropClick)="sidenav.close()" fullscreen >
-        <mat-sidenav class="example-container" #sidenav (keydown.escape)="sidenav.close()" disableClose mode="over" >
+        <mat-sidenav class="example-container" #sidenav (keydown.escape)="sidenav.close()" disableClose mode="over" fixedTopGap="20" >
           <div><a class="main-nav__link" routerLink="/postjob" routerLinkActive="active">postjob</a></div>
           <div><a class="main-nav__link" routerLink="/test" routerLinkActive="active">test</a></div>
           <div><a class="main-nav__link" routerLink="/angela" routerLinkActive="active">angela</a></div>
@@ -47,7 +50,7 @@
         <mat-sidenav-content>
                <!-- <app-test-component></app-test-component>
                <app-sindytest-component></app-sindytest-component> -->
-               <router-outlet></router-outlet>
+               <div class="body"><router-outlet></router-outlet></div>
         </mat-sidenav-content>
 </mat-sidenav-container>
 </div>
