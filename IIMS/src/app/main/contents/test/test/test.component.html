@@ -41,3 +41,32 @@
               {{file.name}} ({{file.size}} bytes)
             </li>
         </ul> -->
+
+        <!-- <div class="test">
+            <form action="" class="dropzone" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" />
+            </form>
+        </div> -->
+        <div
+            ngfDrop
+            multiple         = "1"
+            selectable       = "1"
+            [(validDrag)]    = "validComboDrag"
+            [(files)]        = "files"
+            accept           = "image/*"
+            [maxSize]        = "maxSize"
+            [(lastInvalids)] = "lastInvalids"
+            [(dragFiles)]    = "dragFiles"
+            class            = "test"
+            [class.invalid-drag] = "validComboDrag===false"
+            [class.valid-drag]   = "validComboDrag"
+            (filesChange) = "lastFileAt=getDate()"
+            [fileDropDisabled] = "fileDropDisabled"
+      >
+        <div *ngFor="let item of files; let i = index">
+            <div *ngIf="['image/gif','image/png','image/jpeg'].indexOf(item.type)>=0">
+                <img [src]="testimg">
+            </div>
+            <strong>{{ item.name }}</strong>
+        </div>
+    </div>

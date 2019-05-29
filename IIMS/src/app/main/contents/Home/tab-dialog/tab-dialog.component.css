@@ -1,7 +1,60 @@
 .btn-cancel {
-    text-align: end
+    text-align: end;
+    color: rgba(0, 0, 0, 0.3);
+}
+.btn-cancel:hover {
+    background-color: rgba(255, 0, 0, 0.1);
+    color: rgba(255, 0, 0, 0.5);
+    transition: 0s;
 }
 
 .btn-confirm {
-    text-align: end
+    text-align: end;
+    color: rgba(0, 0, 0, 0.3);
+}
+.btn-confirm:hover {
+    background-color: rgba(4, 0, 255, 0.1);
+    color: rgba(4, 0, 255, 0.5);
+    transition: 0s;
+}
+
+.titlestyle {
+    height: 50px; 
+    background-color: rgba(76, 0, 255,0.5);
+}
+
+.dropimg {
+    height: 200px; 
+    width: 200px; 
+    background-color: rgba(151, 207, 245, 0.3);
+    border-style: dashed;
+    border-radius: 10px;
+    border-color: rgba(0, 0, 0, 0.1);
+    text-align: center;
+    line-height: 200px;
+    color: rgb(194, 194, 194);
+}
+.dropimg:hover {
+    background-color: rgba(151, 207, 245,0.6);
+    border-color: rgba(0, 0, 0, 0.8);
+    color: rgb(126, 126, 126);
+    transition: 0s;
+}
+
+.previewimg {
+    height: 210px; 
+    width: 210px;
+    /* text-align: center; */
+    border-style: dashed;
+    border-radius: 10px;
+    border-color: rgba(71, 5, 253, 0.8);
+}
+.previewimg:hover {
+    opacity: 0.5;
+    transition: 0s;
+}
+
+
+mat-dialog-actions {
+    justify-content: flex-end;
 }

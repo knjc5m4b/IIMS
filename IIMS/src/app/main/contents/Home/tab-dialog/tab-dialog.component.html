@@ -1,29 +1,48 @@
-<div>
-    <mat-form-field>
-        <input matInput placeholder="name" [(ngModel)]="tabname">
-    </mat-form-field>
+<div mat-dialog-title>
+    <div class="titletext">部門簡介</div>
 </div>
-<div >
-    <!-- <file-drop dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)" >
-            <span>optional content (don't set dropZoneLabel then)</span>
-    </file-drop> -->
-        <div ng-controller="MainController">
-        <div class="dropzone" file-dropzone="[image/png, image/jpeg, image/gif]" file="image" file-name="imageFileName" data-max-file-size="3">
-          <span>Drop Image Here</span>
+<div mat-dialog-content>
+    <div>
+        <mat-form-field>
+            <input matInput placeholder="name" [(ngModel)]="tabname">
+        </mat-form-field>
+    </div>
+    <div>
+        <div
+            ngfDrop
+            multiple         = "1"
+            selectable       = "1"
+            [(validDrag)]    = "validComboDrag"
+            [(files)]        = "files"
+            accept           = "image/*"
+            [maxSize]        = "maxSize"
+            [(lastInvalids)] = "lastInvalids"
+            [(dragFiles)]    = "dragFiles"
+            [class.invalid-drag] = "validComboDrag===false"
+            [class.valid-drag]   = "validComboDrag"
+            (filesChange) = "lastFileAt=getDate()"
+            [fileDropDisabled] = "fileDropDisabled"
+            style="width:200px"
+        >
+        <div class= "dropimg" *ngIf="files.length === 0" >
+        <!-- <span class="droptext"><mat-icon>add</mat-icon></span> <br> -->
+            <span >Drag & Drop An Image Here!</span>
         </div>
-        <div class="image-container">
-          <!-- <img ng-src={{image}} />
-          <span class="file-name">{{imageFileName}}</span> -->
-        </div>    
-        <input type="file" class="dropzone" file-dropzone="[image/png, image/jpeg, image/gif]" file="image" placeholder="image" (change)="onSelectFile($event)">
-    <img *ngIf="tabimage" [src]="tabimage" height="200" assept="img/*">
+        <!-- <input type="file" class="dropzone" file-dropzone="[image/png, image/jpeg, image/gif]" file="image" placeholder="image" (change)="onSelectFile($event)"> -->
+            <div *ngFor="let item of files; let i = index" >
+                <div *ngIf="['image/gif','image/png','image/jpeg'].indexOf(item.type)>=0">
+                    <img class="previewimg" *ngIf="tabimage"  [src]="tabimage" height="200" assept="img/*">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <mat-form-field>
+            <textarea matInput placeholder="content" [(ngModel)]="tabcontent" style="height: 80px"></textarea>
+        </mat-form-field>
+    </div>
 </div>
-<div>
-    <mat-form-field>
-        <textarea matInput placeholder="content" [(ngModel)]="tabcontent" style="height: 80px"></textarea>
-    </mat-form-field>
-</div>
-<div style="text-align:right">
-    <button class="btn-cancel" mat-button (click)="cancel()">cancel</button> | 
+<div mat-dialog-actions>
+    <button class="btn-cancel" mat-button (click)="cancel()">cancel</button>&nbsp;| 
     <button class="btn-confirm" mat-button (click)="confirm()">confirm</button>
 </div>

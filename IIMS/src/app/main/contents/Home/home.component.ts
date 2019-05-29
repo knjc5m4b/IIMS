@@ -43,6 +43,7 @@ export class HomeComponent {
     opendialog(): void {
         const dialogRef = this.dialog.open(TabDialogComponent, {
             width: '500px',
+            height: '550px',
             data: {
                 tabs: this.tabs,
                 selected: this.selected,

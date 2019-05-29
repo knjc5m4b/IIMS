@@ -13,7 +13,14 @@ export class TabDialogComponent {
 
     tabimage: any;
     tabdata = [];
-    files: UploadFile[] = [];
+    files: File[] = [];
+    progress: number;
+    dragFiles: any;
+    validComboDrag: any;
+    lastInvalids: any;
+    fileDropDisabled: any;
+    baseDropValid: any;
+    lastFileAt: Date;
 
     constructor(
         private dialogRef: MatDialogRef<TabDialogComponent>,
@@ -40,16 +47,38 @@ export class TabDialogComponent {
 
     }
 
-    onSelectFile(event) {
-        if (event.target.files && event.target.files[0]) {
-            const reader = new FileReader();
-            reader.readAsDataURL(event.target.files[0]);
+    getDate(index: number) {
+        console.log(this.files);
 
+        if (this.files.length > 1) {
+            this.files.splice(index, 1);
+            const reader = new FileReader();
+            reader.readAsDataURL(this.files[0]);
             reader.onload = () => {
                 this.tabimage = reader.result;
+                    // console.log(this.tabimage);
+            };
+        } else {
+            const reader = new FileReader();
+            reader.readAsDataURL(this.files[0]);
+            reader.onload = () => {
+                this.tabimage = reader.result;
+                    // console.log(this.tabimage);
             };
         }
+        return new Date();
     }
+
+    // onSelectFile(event) {
+    //     if (event.target.files && event.target.files[0]) {
+    //         const reader = new FileReader();
+    //         reader.readAsDataURL(event.target.files[0]);
+
+    //         reader.onload = () => {
+    //             this.tabimage = reader.result;
+    //         };
+    //     }
+    // }
 
     // public dropped(event: UploadEvent) {
     //     this.files = event.files;

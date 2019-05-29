@@ -38,9 +38,9 @@
           <mat-icon >home</mat-icon>
         </button>
 </mat-toolbar>
-<mat-sidenav-container (backdropClick)="sidenav.close()" fullscreen >
-        <mat-sidenav class="example-container" #sidenav (keydown.escape)="sidenav.close()" disableClose mode="over" fixedTopGap="20" >
-          <div><a class="main-nav__link" routerLink="/postjob" routerLinkActive="active">postjob</a></div>
+<mat-sidenav-container  fullscreen >
+        <mat-sidenav class="example-container" #sidenav  (click)="sidenav.toggle()" (keydown.escape)="sidenav.close()" (backdropClick)="sidenav.close()"  mode="over" fixedTopGap="20" >
+          <div ><button mat-button ><a class="main-nav__link" routerLink="/postjob" routerLinkActive="active">職缺刊登</a></button></div>
           <div><a class="main-nav__link" routerLink="/test" routerLinkActive="active">test</a></div>
           <div><a class="main-nav__link" routerLink="/angela" routerLinkActive="active">angela</a></div>
           <div><a class="main-nav__link" routerLink="/yoriko" routerLinkActive="active">yoriko</a></div>

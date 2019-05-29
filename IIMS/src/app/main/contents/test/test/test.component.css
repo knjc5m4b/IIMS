@@ -3,7 +3,7 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-.basic-container {
+/* .basic-container {
     padding: 10px;
     max-width: 50%;
 }
@@ -37,17 +37,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .toolbar-seprator {
     flex: 1 1 auto;
-}
+} */
 
 .test {
     height: 500px; 
     width: 500px; 
-    background-color: #000;
-    margin: 65px 0;
-}
-
-.text {
-    font-size: 24px;
-    color: #fff;
-    padding: 150px;
+    background-color: cadetblue;
 }
