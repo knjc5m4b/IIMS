@@ -44,5 +44,5 @@
 </div>
 <div mat-dialog-actions>
     <button class="btn-cancel" mat-button (click)="cancel()">cancel</button>&nbsp;| 
-    <button class="btn-confirm" mat-button (click)="confirm()">confirm</button>
+    <button class="btn-confirm" mat-button (click)="confirm()" [(disabled)]="!tabname || !tabcontent">confirm</button>
 </div>

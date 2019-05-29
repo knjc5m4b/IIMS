@@ -17,6 +17,11 @@
     color: rgba(4, 0, 255, 0.5);
     transition: 0s;
 }
+.btn-confirm:disabled {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: rgba(0, 0, 0, 0.3);
+    transition: 0s;
+}
 
 .titlestyle {
     height: 50px; 
