@@ -18,6 +18,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { CommonModule } from '@angular/common';
 import { FileDropModule } from 'ngx-file-drop';
+import { HttpClientModule } from '@angular/common/http';
+import { ngfModule } from 'angular-file';
 
 
 
@@ -48,6 +50,8 @@ const Routes: Routes = [
         FormsModule,
         CommonModule,
         FileDropModule,
+        HttpClientModule,
+        ngfModule
     ],
     exports: [
         TestComponent,

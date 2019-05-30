@@ -3,6 +3,7 @@ import { FormControl } from '@angular/forms';
 import { MatSidenav, MatDialog, MatDialogRef } from '@angular/material';
 import { TabDialogComponent } from '../../Home/tab-dialog/tab-dialog.component';
 import Swiper from 'swiper';
+import { UploadFile } from 'ngx-file-drop';
 
 @Component ({
     selector: 'app-test-component',
@@ -16,6 +17,18 @@ export class TestComponent {
     @Input() tabcontent: string;
     tabimage: null;
     @ViewChild('sidenav') sidenav: MatSidenav;
+    maxSize: 3000;
+    files: File[] = [];
+    progress: number;
+    dragFiles: any;
+    validComboDrag: any;
+    lastInvalids: any;
+    fileDropDisabled: any;
+    baseDropValid: any;
+    lastFileAt: Date;
+    testimg: any;
+    index: number;
+
 
     constructor(
         public dialog: MatDialog,
@@ -60,6 +73,18 @@ export class TestComponent {
         } else {
             alert('name is null!');
         }
+    }
+
+
+    getDate() {
+        const reader = new FileReader();
+        reader.readAsDataURL(this.files[0]);
+        reader.onload = () => {
+                this.testimg = reader.result;
+                console.log(this.testimg);
+        };
+        console.log(this.files);
+        return new Date();
     }
 
     // opendialog() {

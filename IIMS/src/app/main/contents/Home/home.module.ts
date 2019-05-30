@@ -9,6 +9,7 @@ import { MaterialModule } from 'src/app/common/Material.module';
 import { SwiperModule, SWIPER_CONFIG, SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { TabDialogComponent } from './tab-dialog/tab-dialog.component';
 import { FileDropModule } from 'ngx-file-drop';
+import { ngfModule } from 'angular-file';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     observer: true,
@@ -48,7 +49,8 @@ const Routes: Routes = [
       SwiperModule,
       ReactiveFormsModule,
       FormsModule,
-      FileDropModule
+      FileDropModule,
+      ngfModule
     ],
     exports: [
       HomeComponent,
