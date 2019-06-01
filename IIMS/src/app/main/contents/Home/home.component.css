@@ -28,3 +28,28 @@
     background-color: rgb(201, 201, 201);
 }
 
+.dropimg {
+    height: 495px; 
+    width: 600px; 
+    /* background-color: rgba(151, 207, 245, 0.3); */
+    background-image: url('../../../../assets/image/addlogo.jpg');
+    text-align: center;
+    line-height: 200px;
+    color: rgb(194, 194, 194);
+}
+.dropimg:hover {
+    /* background-color: rgba(151, 207, 245,0.6); */
+    background-image: url('../../../../assets/image/hoveraddlogo.jpg');
+    color: rgb(126, 126, 126);
+    transition: 0s;
+}
+
+.previewimg {
+    height: 495px; 
+    width: 600px;
+    /* text-align: center; */
+}
+.previewimg:hover {
+    opacity: 0.5;
+    transition: 0s;
+}

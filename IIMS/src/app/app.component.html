@@ -21,38 +21,35 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <div class="mat-app-background">
-<mat-toolbar class="fixed-header">
-        <button mat-icon-button (click)="sidenav.toggle()">
-            <mat-icon>{{sidenav.opened ? 'menu' : 'menu'}}</mat-icon>
-        </button>
-        IIMS
-        <span class="toolbar-seprator"></span>
-            
-        <button mat-icon-button>
-        <mat-icon>message</mat-icon>
-        </button>
-        <button mat-icon-button>
-                <mat-icon>exit_to_app</mat-icon>
-        </button>
-        <button mat-icon-button routerLink="/home">
-          <mat-icon >home</mat-icon>
-        </button>
-</mat-toolbar>
-<mat-sidenav-container  fullscreen >
-        <mat-sidenav class="example-container" #sidenav  (click)="sidenav.toggle()" (keydown.escape)="sidenav.close()" (backdropClick)="sidenav.close()"  mode="over" fixedTopGap="20" >
-          <div ><button mat-button ><a class="main-nav__link" routerLink="/postjob" routerLinkActive="active">職缺刊登</a></button></div>
-          <div><a class="main-nav__link" routerLink="/test" routerLinkActive="active">test</a></div>
-          <div><a class="main-nav__link" routerLink="/angela" routerLinkActive="active">angela</a></div>
-          <div><a class="main-nav__link" routerLink="/yoriko" routerLinkActive="active">yoriko</a></div>
-          <div><a class="main-nav__link" routerLink="/sindy" routerLinkActive="active">sindy</a></div>
-          <div><a class="main-nav__link" routerLink="/zack" routerLinkActive="active">zack</a></div>
-        </mat-sidenav>
-        <mat-sidenav-content>
-               <!-- <app-test-component></app-test-component>
-               <app-sindytest-component></app-sindytest-component> -->
-               <div class="body"><router-outlet></router-outlet></div>
-        </mat-sidenav-content>
-</mat-sidenav-container>
+  <mat-toolbar class="fixed-header">
+    <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>{{sidenav.opened ? 'menu' : 'menu'}}</mat-icon>
+    </button>
+    IIMS
+    <span class="toolbar-seprator"></span>
+    <button mat-icon-button routerLink="/home">
+      <mat-icon >home</mat-icon>
+    </button>
+    <button mat-icon-button>
+    <!--  routerLink="/login" -->
+        <mat-icon><img style="width: 25px; height:25px" src="https://img.icons8.com/material-outlined/50/000000/exit-sign.png"></mat-icon>
+    </button>
+  </mat-toolbar>
+  <mat-sidenav-container  fullscreen >
+    <mat-sidenav class="example-container" #sidenav  (click)="sidenav.toggle()" (keydown.escape)="sidenav.close()" (backdropClick)="sidenav.close()"  mode="over" fixedTopGap="20" >
+      <div ><button mat-button ><a class="main-nav__link" routerLink="/postjob" routerLinkActive="active">職缺刊登</a></button></div>
+      <div><a class="main-nav__link" routerLink="/test" routerLinkActive="active">test</a></div>
+      <div><a class="main-nav__link" routerLink="/angela" routerLinkActive="active">angela</a></div>
+      <div><a class="main-nav__link" routerLink="/yoriko" routerLinkActive="active">yoriko</a></div>
+      <div><a class="main-nav__link" routerLink="/sindy" routerLinkActive="active">sindy</a></div>
+      <div><a class="main-nav__link" routerLink="/zack" routerLinkActive="active">zack</a></div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <!-- <app-test-component></app-test-component>
+      <app-sindytest-component></app-sindytest-component> -->
+      <div class="body"><router-outlet></router-outlet></div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>
 
 <!-- <router-outlet></router-outlet> -->

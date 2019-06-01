@@ -10,13 +10,14 @@
 
 .btn-confirm {
     text-align: end;
-    color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(4, 0, 255, 0.1);
+    color: rgba(4, 0, 255, 0.5);
 }
-.btn-confirm:hover {
+/* .btn-confirm:hover {
     background-color: rgba(4, 0, 255, 0.1);
     color: rgba(4, 0, 255, 0.5);
     transition: 0s;
-}
+} */
 .btn-confirm:disabled {
     background-color: rgba(255, 255, 255, 0.1);
     color: rgba(0, 0, 0, 0.3);
@@ -62,4 +63,12 @@
 
 mat-dialog-actions {
     justify-content: flex-end;
+}
+
+mat-dialog-content {
+    height: 600px;
+}
+
+.font {
+    color: rgb(255, 0, 0);
 }

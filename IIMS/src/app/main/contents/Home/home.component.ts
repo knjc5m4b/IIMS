@@ -22,28 +22,41 @@ export class HomeComponent {
     tabs = [];
     selected = new FormControl(0);
 
+    files: File[] = [];
+    progress: number;
+    dragFiles: any;
+    validComboDrag: any;
+    lastInvalids: any;
+    fileDropDisabled: any;
+    baseDropValid: any;
+    lastFileAt: Date;
+    slideimage: any;
 
   constructor(
       private dialog: MatDialog,
   ) {
   }
     public slides = [
-      'https://ichef.bbci.co.uk/news/660/cpsprodpb/1912/production/_105981460_d9ff6226-aae3-4bba-8634-d26742299c80.jpg',
-      'https://pics.ettoday.net/images/1294/d1294597.jpg',
-      'http://p3.pstatp.com/large/102000012c2e9ed947aa',
-      'https://i1.read01.com/SIG=22kd5l7/30466c744479714e6c39.jpg',
-      'assets/image/cat1.jpg',
-      'assets/image/cat.jpg',
+        'assets/image/addlogo.jpg',
     ];
 
     removeTab(index: number) {
         this.tabs.splice(index, 1);
     }
 
+    addslides() {
+        this.slides.push(this.slideimage);
+        this.selected.setValue(this.slides.length);
+    }
+
+    removeslides(index: number) {
+        this.slides.splice(index, 1);
+    }
+
     opendialog(): void {
         const dialogRef = this.dialog.open(TabDialogComponent, {
-            width: '500px',
-            height: '550px',
+            width: '600px',
+            height: '700px',
             data: {
                 tabs: this.tabs,
                 selected: this.selected,
@@ -56,5 +69,25 @@ export class HomeComponent {
             }
             // console.log(res);
         });
+    }
+
+    getDate(index: number) {
+        console.log(this.files);
+
+        if (this.files.length > 1) {
+            this.files.splice(index, 1);
+            const reader = new FileReader();
+            reader.readAsDataURL(this.files[0]);
+            reader.onload = () => {
+                this.slideimage = reader.result;
+            };
+        } else {
+            const reader = new FileReader();
+            reader.readAsDataURL(this.files[0]);
+            reader.onload = () => {
+                this.slideimage = reader.result;
+            };
+        }
+        return new Date();
     }
 }

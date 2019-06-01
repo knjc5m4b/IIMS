@@ -47,6 +47,7 @@ export class TabDialogComponent {
 
     }
 
+
     getDate(index: number) {
         console.log(this.files);
 

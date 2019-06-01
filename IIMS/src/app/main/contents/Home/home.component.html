@@ -1,14 +1,48 @@
 
     <div class="content-container">
-        <div class="swiper-container" [swiper]="config">
-            <div class="swiper-wrapper">
+        <div class="swiper-container" [swiper]="config" >
+            <div class="swiper-wrapper" (selectedIndex)="selected.value" (selectedIndexChange)="selected.setValue($event)">
                 <div *ngFor="let slide of slides" class="swiper-slide">
-                    <img width="100%" height="100%" src="{{slide}}"></div>
+                    <!-- <img width="100%" height="100%" src="{{slide}}"> -->
+                    <div>
+                        <div
+                            ngfDrop
+                            multiple         = "1"
+                            selectable       = "1"
+                            [(validDrag)]    = "validComboDrag"
+                            [(files)]        = "files"
+                            accept           = "image/*"
+                            [maxSize]        = "maxSize"
+                            [(lastInvalids)] = "lastInvalids"
+                            [(dragFiles)]    = "dragFiles"
+                            [class.invalid-drag] = "validComboDrag===false"
+                            [class.valid-drag]   = "validComboDrag"
+                            (filesChange) = "lastFileAt=getDate()"
+                            [fileDropDisabled] = "fileDropDisabled"
+                            style="width:200px"
+                        >
+                            <div class= "dropimg" *ngIf="files.length === 0" >
+                            <!-- <span class="droptext"><mat-icon>add</mat-icon></span> <br> -->
+                                <!-- <span >Drag & Drop An Image Here!</span> -->
+                            </div>
+                            <!-- <input type="file" class="dropzone" file-dropzone="[image/png, image/jpeg, image/gif]" file="image" placeholder="image" (change)="onSelectFile($event)"> -->
+                                <div *ngFor="let item of files; let i = index" >
+                                    <div *ngIf="['image/gif','image/png','image/jpeg'].indexOf(item.type)>=0">
+                                        <img class="previewimg" *ngIf="slideimage"  [src]="slideimage" height="200" assept="img/*">
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
             </div> 
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-pagination"></div>
-    </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <div class="swiper-none" >
+            <button mat-icon-button class="swiper-add" (click)=addslides() [disabled]="slides.length >= 5" ><mat-icon>add</mat-icon></button>
+            <button mat-icon-button class="swiper-remove" (click)=removeslides(index) [disabled]="slides.length <= 1"><mat-icon>remove</mat-icon></button>
+        </div>
     </div>
 
     <div>            

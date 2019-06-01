@@ -3,8 +3,10 @@
 </div>
 <div mat-dialog-content>
     <div>
+        <span class="font">*</span>
+        部門名稱：
         <mat-form-field>
-            <input matInput placeholder="name" [(ngModel)]="tabname">
+            <input matInput placeholder="請輸入部門名稱" [(ngModel)]="tabname">
         </mat-form-field>
     </div>
     <div>
@@ -36,11 +38,17 @@
             </div>
         </div>
     </div>
-    <div>
-        <mat-form-field>
-            <textarea matInput placeholder="content" [(ngModel)]="tabcontent" style="height: 80px"></textarea>
+        <span class="font">*</span>
+        <span>簡介內容：</span>
+        <mat-form-field style="width: 80%">
+            <textarea matInput placeholder="請輸入內容" [(ngModel)]="tabcontent"  
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            maxlength="450" 
+            maxrows="20"
+            ></textarea>
         </mat-form-field>
-    </div>
+
 </div>
 <div mat-dialog-actions>
     <button class="btn-cancel" mat-button (click)="cancel()">cancel</button>&nbsp;| 
