@@ -1,9 +1,10 @@
-<html>
-<head>
-<meta charset="UTF-8">
-</head>
-<body><h1>履歷表</h1>
-    姓 名：<input type="text" name="name" size="20"><br><br>
+<h1>履歷表</h1>
+    <!-- 姓 名：<input type="text" name="name" size="20"><br><br> -->
+    <div> 姓名：
+        <mat-form-field>
+           <input placeholder="請輸入姓名" matInput>
+        </mat-form-field>
+</div>
         <form>
     性 別：
         <input type="radio" name="sex" value="boy">男
@@ -44,6 +45,5 @@
             <input type="radio" name="money" value="Negotiable">面議
             <input type="radio" name="money2" value="per">依公司規定
              </form><br>
-		<input type="submit" value="儲存"/>
-</body>
-</html>
+        <input type="submit" value="儲存"/>
+        
