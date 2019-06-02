@@ -36,13 +36,20 @@
     </button>
   </mat-toolbar>
   <mat-sidenav-container  fullscreen >
-    <mat-sidenav class="example-container" #sidenav  (click)="sidenav.toggle()" (keydown.escape)="sidenav.close()" (backdropClick)="sidenav.close()"  mode="over" fixedTopGap="20" >
-      <div ><button mat-button ><a class="main-nav__link" routerLink="/postjob" routerLinkActive="active">職缺刊登</a></button></div>
-      <div><a class="main-nav__link" routerLink="/test" routerLinkActive="active">test</a></div>
-      <div><a class="main-nav__link" routerLink="/angela" routerLinkActive="active">angela</a></div>
-      <div><a class="main-nav__link" routerLink="/yoriko" routerLinkActive="active">yoriko</a></div>
-      <div><a class="main-nav__link" routerLink="/sindy" routerLinkActive="active">sindy</a></div>
-      <div><a class="main-nav__link" routerLink="/zack" routerLinkActive="active">zack</a></div>
+    <!--  (click)="sidenav.toggle()" (keydown.escape)="sidenav.close()" (backdropClick)="sidenav.close()"  -->
+    <mat-sidenav #sidenav mode="side" fixedTopGap="20" opened >
+      <div class="menu" *ngFor="let menu of menu; let index of index">
+        <mat-nav-list>
+          <!-- <mat-list-item> -->
+            <!-- <mat-list-option *ngFor="let menu of menu; let index of index"> -->
+              <a class="menutext" mat-list-item [routerLink]="menu.routerLink">{{menu.viewValue}}</a>
+              
+            <!-- </mat-list-option> -->
+          <!-- </mat-list-item> -->
+        </mat-nav-list>
+        <mat-divider></mat-divider>
+      </div>
+      
     </mat-sidenav>
     <mat-sidenav-content>
       <!-- <app-test-component></app-test-component>
