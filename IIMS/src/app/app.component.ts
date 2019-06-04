@@ -1,7 +1,5 @@
 import { Component, Injector, OnInit } from '@angular/core';
 
-import { MatSidenav } from '@angular/material';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,7 +7,7 @@ import { MatSidenav } from '@angular/material';
 })
 
 
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'IIMS';
   menu: Menu[] = [
     {value: 'role1' , viewValue: '職缺刊登', routerLink: '/postjob'},
@@ -20,7 +18,7 @@ export class AppComponent implements OnInit{
     {value: 'role6' , viewValue: 'Zack', routerLink: '/zack'},
   ];
   constructor(
-     injector:　Injector
+     injector:　Injector,
   ) {
     // super(injector);
   }

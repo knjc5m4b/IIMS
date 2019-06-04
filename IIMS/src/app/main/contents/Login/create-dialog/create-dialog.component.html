@@ -51,9 +51,8 @@
             </mat-form-field>
         </td></tr>
     </table>
-
 </div>
-<div mat-dialog-actions>
-    <button class="btn-cancel" mat-button (click)="cancel()">cancel</button>&nbsp;| 
-    <button class="btn-confirm" mat-button (click)="confirm()" [(disabled)]="!addaccount || !addpassword || !repassword">confirm</button>
-</div>
+<mat-dialog-actions align="end">
+    <button class="btn-warn"  color="warn" mat-button (click)="cancel()">cancel</button>&nbsp;| 
+    <button class="btn-primary"  color="primary" mat-button (click)="confirm()" [(disabled)]="!addaccount || !addpassword || !repassword">confirm</button>
+</mat-dialog-actions>

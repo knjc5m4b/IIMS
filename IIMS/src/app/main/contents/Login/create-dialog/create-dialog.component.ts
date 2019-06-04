@@ -1,5 +1,6 @@
 import { Component, Input, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
+import { MessageDialogComponent } from 'src/app/common/message-dialog/message-dialog.component';
 
 @Component({
     selector: 'app-create-dialog',
@@ -17,6 +18,7 @@ export class CreateDialogComponent {
     accountdata = [];
 
     constructor(
+        private dialog: MatDialog,
         private dialogRef: MatDialogRef<CreateDialogComponent>,
         @Inject(MAT_DIALOG_DATA)
         private data: any,
@@ -40,6 +42,7 @@ export class CreateDialogComponent {
             } else {
                 this.accountdata = [this.addaccount, this.addpassword, this.repassword, this.staffnum];
                 this.dialogRef.close(this.accountdata);
+                this.opendialog();
             }
         } else if (this.getmode === 'interviewee') {
             if (this.addaccount === undefined || this.addaccount === '' || this.addaccount === null) {
@@ -51,10 +54,25 @@ export class CreateDialogComponent {
             } else {
                 this.accountdata = [this.addaccount, this.addpassword, this.repassword];
                 this.dialogRef.close(this.accountdata);
+                this.opendialog();
             }
         }
-
     }
+
+    opendialog() {
+        const dialogRef = this.dialog.open(MessageDialogComponent, {
+            width: '600px',
+            // height: '700px',
+            data: {
+                title: 'Confirm',
+                content: '註冊成功!'
+            }
+        });
+        dialogRef.afterClosed().subscribe(res => {
+        });
+    }
+
+
     modeer() {
         this.getmode = 'interviewer';
     }

@@ -1,31 +1,31 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
 <div class="mat-app-background">
   <mat-toolbar class="fixed-header">
     <button mat-icon-button (click)="sidenav.toggle()">
-        <mat-icon>{{sidenav.opened ? 'menu' : 'menu'}}</mat-icon>
+      <mat-icon>{{sidenav.opened ? 'menu' : 'menu'}}</mat-icon>
     </button>
     IIMS
-    <span class="toolbar-seprator"></span>
+    <span class="spanflex"></span>
     <button mat-icon-button routerLink="/home">
       <mat-icon >home</mat-icon>
     </button>
-    <button mat-icon-button>
+    
+    <button mat-icon-button routerLink="/login">
     <!--  routerLink="/login" -->
-        <mat-icon><img style="width: 25px; height:25px" src="https://img.icons8.com/material-outlined/50/000000/exit-sign.png"></mat-icon>
+      <mat-icon><img style="width: 25px; height:25px" src="https://img.icons8.com/material-outlined/50/000000/exit-sign.png"></mat-icon>
     </button>
   </mat-toolbar>
   <mat-sidenav-container  fullscreen >
-    <!--  (click)="sidenav.toggle()" (keydown.escape)="sidenav.close()" (backdropClick)="sidenav.close()"  -->
-  <mat-sidenav #sidenav mode="side" fixedTopGap="20" opened  class="contentwidth" >
-      <div class="menu" *ngFor="let menu of menu; let index of index">
-        <mat-nav-list>
-              <a class="menutext" mat-list-item [routerLink]="menu.routerLink">{{menu.viewValue}}</a>
+      <!--  (click)="sidenav.toggle()" (keydown.escape)="sidenav.close()" (backdropClick)="sidenav.close()"  -->
+      <!-- ngif login -->
+    <mat-sidenav #sidenav mode="side" fixedTopGap="20" opened  class="contentwidth" >
+        <div class="menu" *ngFor="let menu of menu; let index of index">
+          <mat-nav-list>
+                <a class="menutext" mat-list-item [routerLink]="menu.routerLink">{{menu.viewValue}}</a>
 
-        </mat-nav-list>
-        <mat-divider class="contentwidth"></mat-divider>
-      </div>
-      
+          </mat-nav-list>
+          <mat-divider class="contentwidth"></mat-divider>
+        </div>
     </mat-sidenav>
     <mat-sidenav-content>
       <div class="body"><router-outlet></router-outlet></div>

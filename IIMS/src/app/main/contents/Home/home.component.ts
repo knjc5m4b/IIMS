@@ -31,6 +31,9 @@ export class HomeComponent {
     baseDropValid: any;
     lastFileAt: Date;
     slideimage: any;
+    img: Slideimages[] = [
+        {num: this.files.length , url: this.slideimage}
+    ];
 
   constructor(
       private dialog: MatDialog,
@@ -56,7 +59,7 @@ export class HomeComponent {
     opendialog(): void {
         const dialogRef = this.dialog.open(TabDialogComponent, {
             width: '600px',
-            height: '700px',
+            // height: '700px',
             data: {
                 tabs: this.tabs,
                 selected: this.selected,
@@ -90,4 +93,8 @@ export class HomeComponent {
         }
         return new Date();
     }
+}
+export interface Slideimages {
+    num: number;
+    url: string;
 }

@@ -31,6 +31,11 @@
                                         <img class="previewimg" *ngIf="slideimage"  [src]="slideimage" height="200" assept="img/*">
                                     </div>
                                 </div>
+                                <div *ngFor="let img of slideimages">
+                                    <div *ngIf="['image/gif','image/png','image/jpeg'].indexOf(item.type)>=0">
+                                        <img class="previewimg" *ngIf="slideimage"  [src]="slideimage" height="200" assept="img/*">
+                                    </div>
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -39,9 +44,9 @@
             <div class="swiper-button-next"></div>
             <div class="swiper-pagination"></div>
         </div>
-        <div class="swiper-none" >
-            <button mat-icon-button class="swiper-add" (click)=addslides() [disabled]="slides.length >= 5" ><mat-icon>add</mat-icon></button>
-            <button mat-icon-button class="swiper-remove" (click)=removeslides(index) [disabled]="slides.length <= 1"><mat-icon>remove</mat-icon></button>
+        <div align="end">
+            <button mat-icon-button color="primary" (click)=addslides() [disabled]="slides.length >= 5" ><mat-icon>library_add</mat-icon></button>
+            <button mat-icon-button color="warn" (click)=removeslides(index) [disabled]="slides.length <= 1"><mat-icon>delete</mat-icon></button>
         </div>
     </div>
 
