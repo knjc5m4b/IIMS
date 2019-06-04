@@ -11,6 +11,8 @@ import { TestModule } from './main/contents/test/test.module';
 import { PostingJobComponent } from './main/contents/Postting-Job/view/job-posting-view.component';
 import { HomeComponent } from './main/contents/Home/home.component';
 import { HomeModule } from './main/contents/Home/home.module';
+import { LoginComponent } from './main/contents/Login/login.component';
+import { LoginModule } from './main/contents/Login/Login.module';
 
 const appRoutes: Routes = [
 
@@ -22,6 +24,9 @@ const appRoutes: Routes = [
   },
   {   path: 'home',
       component: HomeComponent,
+  },
+  {   path: 'login',
+      component: LoginComponent,
   },
   {   path: '',
       component: AppComponent,
@@ -43,7 +48,8 @@ const appRoutes: Routes = [
     RouterModule,
     TestModule,
     PostJobModule,
-    HomeModule
+    HomeModule,
+    LoginModule
   ],
   providers: [],
   bootstrap: [AppComponent]

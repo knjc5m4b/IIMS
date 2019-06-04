@@ -1,0 +1,60 @@
+.btn-cancel {
+    text-align: end;
+    color: rgba(0, 0, 0, 0.3);
+}
+.btn-cancel:hover {
+    background-color: rgba(255, 0, 0, 0.1);
+    color: rgba(255, 0, 0, 0.5);
+    transition: 0s;
+}
+
+.btn-confirm {
+    text-align: end;
+    background-color: rgba(4, 0, 255, 0.1);
+    color: rgba(4, 0, 255, 0.5);
+}
+/* .btn-confirm:hover {
+    background-color: rgba(4, 0, 255, 0.1);
+    color: rgba(4, 0, 255, 0.5);
+    transition: 0s;
+} */
+.btn-confirm:disabled {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: rgba(0, 0, 0, 0.3);
+    transition: 0s;
+}
+
+
+mat-dialog-actions {
+    justify-content: flex-end;
+}
+
+mat-dialog-content {
+    height: 600px;
+}
+
+.font {
+    color: rgb(255, 0, 0);
+}
+
+.interviewer {
+    width: 200px;
+    height: 100px;
+    border-style: dashed;
+    border-radius: 10px;
+    border-color:  rgba(255, 0, 0, 0.3);
+    background-color: rgba(255, 0, 0, 0.1);
+    color: rgba(0, 26, 255, 0.8);
+    text-align: right;
+}
+
+.interviewee {
+    width: 200px;
+    height: 100px;
+    border-style: dashed;
+    border-radius: 10px;
+    border-color:  rgba(0, 26, 255, 0.3);
+    background-color: rgba(0, 26, 255, 0.1);
+    color: rgba(255, 0, 0, 0.8);
+    text-align: right;
+}
