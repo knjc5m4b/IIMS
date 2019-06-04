@@ -1,6 +1,6 @@
-import { Component, Injector } from '@angular/core';
-import { Food } from './main/contents/test/yoriko/yorikotest.component';
-import { Url } from 'url';
+import { Component, Injector, OnInit } from '@angular/core';
+
+import { MatSidenav } from '@angular/material';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +9,8 @@ import { Url } from 'url';
 })
 
 
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'IIMS';
-  opened: true;
   menu: Menu[] = [
     {value: 'role1' , viewValue: '職缺刊登', routerLink: '/postjob'},
     {value: 'role2' , viewValue: '檢視面試者名單', routerLink: '/postjob'},
@@ -26,6 +25,8 @@ export class AppComponent {
     // super(injector);
   }
 
+  ngOnInit(): void {
+  }
 }
 export interface Menu {
   value: string;

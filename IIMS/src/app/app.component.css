@@ -10,17 +10,30 @@
 mat-sidenav {
     padding: 55px 0;
     background-color: rgba(0, 0, 0, 0.8);
-    min-width: 200px;
+    /* min-width: 260px; */
 }
+@media screen  and (max-width:700px){
+    .contentwidth {display: none}
+}
+@media screen  and (min-width:900px){
+    .contentwidth {min-width: 100px; }
+}
+@media screen  and (min-width:1000px){
+    .contentwidth {min-width: 260px; }
+}
+
 mat-divider {
-    display: block;
+    display: none;
     border-top-width: 1px;
     border-top-style: solid;
     border-top-color: rgb(255, 255, 255);
-    width: 200px;
+    /* min-width: 260px; */
     /* text-align: center; */
     margin: 0 15px;
 }
+
+
+
 .body {
     margin: 80px 10px;
 }
