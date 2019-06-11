@@ -38,8 +38,9 @@
         </td>
         <td>
             <mat-form-field>
-                <input matInput placeholder="請輸入密碼" [(ngModel)]="addpassword">
+                <input matInput type="{{pwdtype}}" placeholder="請輸入密碼" [(ngModel)]="addpassword">
             </mat-form-field>
+            <button mat-icon-button (click)="changepwdtypetype()"><mat-icon>remove_red_eye</mat-icon></button>
         </td></tr>
         <tr><td>
             <span class="font">*</span>
@@ -47,8 +48,9 @@
         </td>
         <td>
             <mat-form-field>
-                <input matInput placeholder="請再次輸入密碼" [(ngModel)]="repassword">
+                <input matInput type="{{repwdtype}}" placeholder="請再次輸入密碼" [(ngModel)]="repassword">
             </mat-form-field>
+            <button mat-icon-button (click)="changerepwdtypetype()"><mat-icon>remove_red_eye</mat-icon></button>
         </td></tr>
     </table>
 </div>

@@ -16,6 +16,8 @@ export class CreateDialogComponent {
 
     getmode = '';
     accountdata = [];
+    pwdtype = '';
+    repwdtype = '';
 
     constructor(
         private dialog: MatDialog,
@@ -80,4 +82,18 @@ export class CreateDialogComponent {
         this.getmode = 'interviewee';
     }
 
+    changepwdtypetype() {
+        if (this.pwdtype === '') {
+            this.pwdtype = 'password';
+        } else if (this.pwdtype === 'password') {
+            this.pwdtype = '';
+        }
+    }
+    changerepwdtypetype() {
+        if (this.repwdtype === '') {
+            this.repwdtype = 'password';
+        } else if (this.repwdtype === 'password') {
+            this.repwdtype = '';
+        }
+    }
 }
