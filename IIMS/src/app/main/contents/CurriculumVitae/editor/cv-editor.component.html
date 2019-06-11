@@ -1,0 +1,81 @@
+<h1>履歷表</h1>
+    <!-- 姓 名：<input type="text" name="name" size="20"><br><br> -->
+    <div> 姓氏：
+        <mat-form-field>
+           <input matInput placeholder="請輸入您的姓氏" [(ngModel)]="familyname" maxlength="5">
+        </mat-form-field>
+         名字：
+        <mat-form-field>
+           <input matInput placeholder="請輸入您的名字" [(ngModel)]="givenname" maxlength="5">
+        </mat-form-field>
+    </div>
+    <div> 性 別：
+        <mat-radio-group aria-label="Select an option" [(ngModel)]="gender">
+          <mat-radio-button value="男">男</mat-radio-button>
+          <mat-radio-button value="女">女</mat-radio-button>
+        </mat-radio-group>
+    </div>
+
+    <div>生 日：
+        <mat-form-field>
+            <input matInput [matDatepicker]="picker" placeholder="請選擇您的生日" [max]="maxDate" [min]="minDate" [(ngModel)]="brdate">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker [startAt]="startDate"></mat-datepicker>
+        </mat-form-field>
+    </div>
+    <div>Email：
+        <mat-form-field>
+            <input matInput placeholder="Email" [(ngModel)]="email" [formControl]="emailFormControl" maxlength="100" >
+            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+                Email is <strong>required</strong>
+            </mat-error>
+        </mat-form-field> 
+    </div>
+    <div>手 機：
+        <mat-form-field class="example-full-width">
+            <span matPrefix>+86 &nbsp;</span>
+            <input type="tel" matInput placeholder="Telephone" maxlength="10">
+            <mat-icon matSuffix>mode_edit</mat-icon>
+        </mat-form-field>
+    </div>
+    地址：{{seletctcitydata}}
+	<mat-form-field>
+        <mat-label>縣市</mat-label>
+        <mat-select [(ngModel)]="seletctcitydata">
+            <mat-option *ngFor="let city of newcities" [value]="city" (click)="getAreaData()">
+                <!-- <button mat-button (click)="getAreaData()"></button> -->
+                {{city}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>區</mat-label>
+        <mat-select [(ngModel)]="seletctareadata">
+            <mat-option *ngFor="let area of newareas" [value]="area">
+                {{area}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    學  歷：
+	<select name="bb">
+		<option value="博士">博士</option>
+		<option value="碩士">碩士</option>
+		<option value="大專">大專</option>
+        <option value="四技">四技</option>
+        <option value="二技">二技</option>
+        <option value="二專">二專</option>
+        <option value="三專">三專</option>
+        <option value="五專">五專</option>
+        <option value="高中">高中</option>
+        <option value="高職">高職</option>
+        <option value="國中(含)以下">國中(含)以下</option>
+	</select><br><br>
+        希望薪資：
+            <input type="text" name="mo" size="10"><br>
+            <input type="radio" name="money" value="Negotiable">面議
+            <input type="radio" name="money2" value="per">依公司規定
+        <input type="submit" value="儲存"/>
+        

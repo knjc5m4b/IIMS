@@ -13,6 +13,10 @@ import { HomeComponent } from './main/contents/Home/home.component';
 import { HomeModule } from './main/contents/Home/home.module';
 import { LoginComponent } from './main/contents/Login/login.component';
 import { LoginModule } from './main/contents/Login/Login.module';
+import { CVComponent } from './main/contents/CurriculumVitae/cv.component';
+import { CVModule } from './main/contents/CurriculumVitae/cv.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 const appRoutes: Routes = [
 
@@ -28,6 +32,9 @@ const appRoutes: Routes = [
   {   path: 'login',
       component: LoginComponent,
   },
+  {   path: 'cv',
+      component: CVComponent,
+  },
   {   path: '',
       component: AppComponent,
   },
@@ -42,14 +49,18 @@ const appRoutes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HomeModule
+    HomeModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule
   ],
   exports: [
     RouterModule,
     TestModule,
     PostJobModule,
     HomeModule,
-    LoginModule
+    LoginModule,
+    CVModule
   ],
   providers: [],
   bootstrap: [AppComponent]
