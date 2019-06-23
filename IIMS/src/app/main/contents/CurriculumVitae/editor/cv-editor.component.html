@@ -41,41 +41,46 @@
             <mat-icon matSuffix>mode_edit</mat-icon>
         </mat-form-field>
     </div>
-    地址：{{seletctcitydata}}
-	<mat-form-field>
-        <mat-label>縣市</mat-label>
-        <mat-select [(ngModel)]="seletctcitydata">
-            <mat-option *ngFor="let city of newcities" [value]="city" (click)="getAreaData()">
-                <!-- <button mat-button (click)="getAreaData()"></button> -->
-                {{city}}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>區</mat-label>
-        <mat-select [(ngModel)]="seletctareadata">
-            <mat-option *ngFor="let area of newareas" [value]="area">
-                {{area}}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
+    <div>地址： 
+        <ng-container *ngIf="seletctareadata">
+            <span>{{seletctareadata}}</span>&nbsp;
+        </ng-container>
+        
+        <mat-form-field class="addselect">
+            <mat-label>縣市</mat-label>
+            <mat-select [(ngModel)]="seletctcitydata">
+                <mat-option *ngFor="let city of allcity" [value]="city.countycode" (click)="getAreaData(seletctcitydata)">
+                    <!-- <button mat-button (click)="getAreaData()"></button> -->
+                    {{city.countyname}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        &nbsp;
+        <mat-form-field class="addselect">
+            <mat-label>區域</mat-label>
+            <mat-select [(ngModel)]="seletctareadata">
+                <mat-option *ngFor="let area of allarea" [value]="area.towncode">
+                    {{area.townname}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        &nbsp;
+        <mat-form-field class="addinput">
+            <input matInput placeholder="地址">
+        </mat-form-field>
+    </div>
     學  歷：
-	<select name="bb">
-		<option value="博士">博士</option>
-		<option value="碩士">碩士</option>
-		<option value="大專">大專</option>
-        <option value="四技">四技</option>
-        <option value="二技">二技</option>
-        <option value="二專">二專</option>
-        <option value="三專">三專</option>
-        <option value="五專">五專</option>
-        <option value="高中">高中</option>
-        <option value="高職">高職</option>
-        <option value="國中(含)以下">國中(含)以下</option>
-	</select><br><br>
-        希望薪資：
+	<mat-form-field class="eduselect">
+        <mat-label>學歷</mat-label>
+        <mat-select [(ngModel)]="seletctedudata">
+            <mat-option *ngFor="let edu of education" [value]="edu.row">
+                {{edu.education}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+        <!-- 希望薪資：
             <input type="text" name="mo" size="10"><br>
             <input type="radio" name="money" value="Negotiable">面議
             <input type="radio" name="money2" value="per">依公司規定
-        <input type="submit" value="儲存"/>
+        <input type="submit" value="儲存"/> -->
         

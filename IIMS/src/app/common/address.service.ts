@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
+import { NgxXml2jsonService } from 'ngx-xml2json';
 
 @Injectable({
     providedIn: 'root'
@@ -11,6 +12,7 @@ export class AddressService {
 
     constructor(
         private http: HttpClient,
+        private ngxXml2jsonService: NgxXml2jsonService,
         public snackBar: MatSnackBar
     ) {}
     public httpOptions = {
@@ -30,9 +32,15 @@ export class AddressService {
         });
     }
 
-    getData(): Observable<any> {
-        const URL = 'https://quality.data.gov.tw/dq_download_json.php?nid=5948&md5_url=17f17b629941c66e38783dbecc906c66';
+    getCityData(): Observable<any> {
+        const URL = '../../assets/address/addCity.json';
         return this.http.get<any>(URL, this.httpOptions);
+    }
+
+    getAreaData(code: string): Observable<any> {
+        // const getURL = '../../assets/address/addArea' + code + '.json';
+        const getURL = 'https://api.nlsc.gov.tw/other/ListTown/' + code;
+        return this.http.get<any>(getURL);
     }
 
     HandleError(e: any): void {

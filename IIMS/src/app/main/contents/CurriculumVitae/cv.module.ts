@@ -49,11 +49,11 @@ export const MY_FORMATS = {
     ],
     declarations: [
         CVComponent,
-        CVEditorComponent
+        CVEditorComponent,
     ],
     entryComponents: [
         CVComponent,
-        CVEditorComponent
+        CVEditorComponent,
     ],
     providers: [
         AddressService,

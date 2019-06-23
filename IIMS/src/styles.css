@@ -45,3 +45,15 @@
 .spanflex {
     flex: 1 1 auto;
 }
+
+.addselect {
+    max-width: 100px;
+}
+
+.eduselect {
+    max-width: 150px;
+}
+
+.addinput {
+    width: 50%;
+}
