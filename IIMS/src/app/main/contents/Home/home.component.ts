@@ -1,4 +1,4 @@
-import { Component, ViewChild, Input} from '@angular/core';
+import { Component, ViewChild, Input, OnInit} from '@angular/core';
 import { SwiperComponent, SwiperDirective} from 'ngx-swiper-wrapper';
 import { MatDialog} from '@angular/material';
 import { TabDialogComponent } from './tab-dialog/tab-dialog.component';
@@ -9,7 +9,12 @@ import { FormControl } from '@angular/forms';
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+
+    constructor(
+        private dialog: MatDialog,
+    ) {
+    }
     @ViewChild(SwiperComponent) componentRef: SwiperComponent;
     @ViewChild(SwiperDirective) directiveRef: SwiperDirective;
     @Input() name: string;
@@ -31,14 +36,13 @@ export class HomeComponent {
     baseDropValid: any;
     lastFileAt: Date;
     slideimage: any;
+    allimages: [];
+    index: number;
 
-  constructor(
-      private dialog: MatDialog,
-  ) {
-  }
-    public slides = [
-        'assets/image/addlogo.jpg',
-    ];
+    public slides = ['First'];
+
+    ngOnInit(): void {
+    }
 
     removeTab(index: number) {
         this.tabs.splice(index, 1);
@@ -56,7 +60,7 @@ export class HomeComponent {
     opendialog(): void {
         const dialogRef = this.dialog.open(TabDialogComponent, {
             width: '600px',
-            height: '700px',
+            // height: '700px',
             data: {
                 tabs: this.tabs,
                 selected: this.selected,
@@ -71,23 +75,28 @@ export class HomeComponent {
         });
     }
 
-    getDate(index: number) {
-        console.log(this.files);
-
-        if (this.files.length > 1) {
-            this.files.splice(index, 1);
-            const reader = new FileReader();
-            reader.readAsDataURL(this.files[0]);
-            reader.onload = () => {
-                this.slideimage = reader.result;
-            };
-        } else {
-            const reader = new FileReader();
-            reader.readAsDataURL(this.files[0]);
-            reader.onload = () => {
-                this.slideimage = reader.result;
-            };
+    getUrl(index: number) {
+        let i = 0;
+        for (i = 0; i < this.files.length; i + 1 ) {
+            console.log('i:', i, this.files[i]);
+            // console.log(this.images[i], this.slideimage);
+            // if (this.files.length > 1) {
+            //     this.files.splice(index, 1);
+            // }
+            if (this.files.length < 6) {
+                const reader = new FileReader();
+                reader.readAsDataURL(this.files[i]);
+                reader.onload = () => {
+                    this.slideimage = reader.result;
+                    return this.slideimage;
+                };
+            }
+            i = i + 1;
         }
+    }
+
+    getDate(index: number) {
+        this.getUrl(index);
         return new Date();
     }
 }
