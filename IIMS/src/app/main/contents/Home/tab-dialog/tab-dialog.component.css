@@ -44,8 +44,12 @@
 
 mat-dialog-actions {
     justify-content: flex-end;
+<<<<<<< HEAD
 }
 
 mat-dialog-content {
     height: 600px;
 }
+=======
+}
+>>>>>>> 754d49dbcf938d5ffc2388b13b5691f3477a15eb

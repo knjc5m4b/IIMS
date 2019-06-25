@@ -48,15 +48,6 @@ export class HomeComponent implements OnInit {
         this.tabs.splice(index, 1);
     }
 
-    addslides() {
-        this.slides.push(this.slideimage);
-        this.selected.setValue(this.slides.length);
-    }
-
-    removeslides(index: number) {
-        this.slides.splice(index, 1);
-    }
-
     opendialog(): void {
         const dialogRef = this.dialog.open(TabDialogComponent, {
             width: '600px',
