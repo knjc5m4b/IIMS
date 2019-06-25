@@ -15,6 +15,8 @@ import {MatInput} from '@angular/material/input';
 
 
 export class YorikoTestComponent {
+    displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+    dataSource = ELEMENT_DATA;
     @Input() name: string;
     @Input() content: string;
     @Input() tabname: string;
