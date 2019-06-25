@@ -3,19 +3,57 @@
         <div class="swiper-container" [swiper]="config">
             <div class="swiper-wrapper">
                 <div *ngFor="let slide of slides" class="swiper-slide">
-                    <img width="100%" height="100%" src="{{slide}}"></div>
+                    <!-- <img width="100%" height="100%" src="{{slide}}"> -->
+                        <div
+                            ngfDrop
+                            multiple         = "1"
+                            selectable       = "1"
+                            [(validDrag)]    = "validComboDrag"
+                            [(files)]        = "files"
+                            accept           = "image/*"
+                            [maxSize]        = "maxSize"
+                            [(lastInvalids)] = "lastInvalids"
+                            [(dragFiles)]    = "dragFiles"
+                            [class.invalid-drag] = "validComboDrag===false"
+                            [class.valid-drag]   = "validComboDrag"
+                            (filesChange) = "lastFileAt=getDate()"
+                            [fileDropDisabled] = "fileDropDisabled"
+                            style="width:200px"
+                        >
+                            <div class= "dropimg" *ngIf="files.length === 0" >
+                            <!-- <span class="droptext"><mat-icon>add</mat-icon></span> <br> -->
+                                <!-- <span >Drag & Drop An Image Here!</span> -->
+                            </div>
+                            <!-- <input type="file" class="dropzone" file-dropzone="[image/png, image/jpeg, image/gif]" file="image" placeholder="image" (change)="onSelectFile($event)"> -->
+
+                            <div *ngFor="let item of files; let i = index">
+                                <div *ngIf="['image/gif','image/png','image/jpeg'].indexOf(item.type)>=0">
+                                    <img class="previewimg" [src]="slideimage" height="200" assept="img/*">
+                                </div>
+                            </div>
+                        </div>
+                </div>
             </div> 
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-pagination"></div>
-    </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <div align="end">
+            <button mat-icon-button color="primary" (click)=addslides() [disabled]="slides.length >= 5" ><mat-icon>library_add</mat-icon></button>
+            <button mat-icon-button color="warn" (click)=removeslides(index) [disabled]="slides.length <= 1"><mat-icon>delete</mat-icon></button>
+        </div>
     </div>
 
-    <div>            
-        <button mat-raised-button class="example-add-tab-button" (click)="opendialog()"> 新增部門 </button>
-    </div>
+    <!-- <div>            
+        <button mat-icon-button class="example-add-tab-button" (click)="opendialog()"><mat-icon>add</mat-icon></button>
+    </div> -->
         <mat-tab-group [selectedIndex]="selected.value" (selectedIndexChange)="selected.setValue($event)">
-            <mat-tab label="部門簡介" class="mat-tab-label mat-ink-bar" disabled></mat-tab>
+            <mat-tab class="mat-tab-label mat-ink-bar" disabled>
+                    <ng-template mat-tab-label>
+                        部門簡介
+                        <button mat-icon-button class="btn-add" (click)="opendialog()"><mat-icon>add</mat-icon></button>
+                    </ng-template>
+            </mat-tab>
             <mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab">
                 <div>{{tab}} 部門簡介</div>
                 <div>

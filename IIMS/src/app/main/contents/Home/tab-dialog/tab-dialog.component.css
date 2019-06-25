@@ -1,27 +1,9 @@
-.btn-cancel {
-    text-align: end;
-    color: rgba(0, 0, 0, 0.3);
-}
-.btn-cancel:hover {
-    background-color: rgba(255, 0, 0, 0.1);
-    color: rgba(255, 0, 0, 0.5);
-    transition: 0s;
-}
-
-.btn-confirm {
-    text-align: end;
-    color: rgba(0, 0, 0, 0.3);
-}
-.btn-confirm:hover {
+/* .btn-confirm:hover {
     background-color: rgba(4, 0, 255, 0.1);
     color: rgba(4, 0, 255, 0.5);
     transition: 0s;
-}
-.btn-confirm:disabled {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: rgba(0, 0, 0, 0.3);
-    transition: 0s;
-}
+} */
+
 
 .titlestyle {
     height: 50px; 
@@ -62,4 +44,12 @@
 
 mat-dialog-actions {
     justify-content: flex-end;
+<<<<<<< HEAD
 }
+
+mat-dialog-content {
+    height: 600px;
+}
+=======
+}
+>>>>>>> 754d49dbcf938d5ffc2388b13b5691f3477a15eb

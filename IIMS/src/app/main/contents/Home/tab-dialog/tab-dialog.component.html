@@ -2,47 +2,62 @@
     <div class="titletext">部門簡介</div>
 </div>
 <div mat-dialog-content>
-    <div>
-        <mat-form-field>
-            <input matInput placeholder="name" [(ngModel)]="tabname">
-        </mat-form-field>
-    </div>
-    <div>
-        <div
-            ngfDrop
-            multiple         = "1"
-            selectable       = "1"
-            [(validDrag)]    = "validComboDrag"
-            [(files)]        = "files"
-            accept           = "image/*"
-            [maxSize]        = "maxSize"
-            [(lastInvalids)] = "lastInvalids"
-            [(dragFiles)]    = "dragFiles"
-            [class.invalid-drag] = "validComboDrag===false"
-            [class.valid-drag]   = "validComboDrag"
-            (filesChange) = "lastFileAt=getDate()"
-            [fileDropDisabled] = "fileDropDisabled"
-            style="width:200px"
-        >
-        <div class= "dropimg" *ngIf="files.length === 0" >
-        <!-- <span class="droptext"><mat-icon>add</mat-icon></span> <br> -->
-            <span >Drag & Drop An Image Here!</span>
-        </div>
-        <!-- <input type="file" class="dropzone" file-dropzone="[image/png, image/jpeg, image/gif]" file="image" placeholder="image" (change)="onSelectFile($event)"> -->
-            <div *ngFor="let item of files; let i = index" >
-                <div *ngIf="['image/gif','image/png','image/jpeg'].indexOf(item.type)>=0">
-                    <img class="previewimg" *ngIf="tabimage"  [src]="tabimage" height="200" assept="img/*">
+    <table>
+        <td>
+            <div>
+                <span class="font">*</span>
+                部門名稱：
+                <mat-form-field>
+                    <input matInput placeholder="請輸入部門名稱" [(ngModel)]="tabname">
+                </mat-form-field>
+            </div>
+        </td>
+        <td>
+            <div>
+                <div
+                    ngfDrop
+                    multiple         = "1"
+                    selectable       = "1"
+                    [(validDrag)]    = "validComboDrag"
+                    [(files)]        = "files"
+                    accept           = "image/*"
+                    [maxSize]        = "maxSize"
+                    [(lastInvalids)] = "lastInvalids"
+                    [(dragFiles)]    = "dragFiles"
+                    [class.invalid-drag] = "validComboDrag===false"
+                    [class.valid-drag]   = "validComboDrag"
+                    (filesChange) = "lastFileAt=getDate()"
+                    [fileDropDisabled] = "fileDropDisabled"
+                    style="width:200px"
+                >
+                    <div class= "dropimg" *ngIf="files.length === 0" >
+                    <!-- <span class="droptext"><mat-icon>add</mat-icon></span> <br> -->
+                        <span >Drag & Drop An Image Here!</span>
+                    <!-- <input type="file" class="dropzone" file-dropzone="[image/png, image/jpeg, image/gif]" file="image" placeholder="image" (change)="onSelectFile($event)"> -->
+                        <div *ngFor="let item of files; let i = index" >
+                            <div *ngIf="['image/gif','image/png','image/jpeg'].indexOf(item.type)>=0">
+                                <img class="previewimg" *ngIf="tabimage"  [src]="tabimage" height="200" assept="img/*">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </td>
+    </table>
     <div>
-        <mat-form-field>
-            <textarea matInput placeholder="content" [(ngModel)]="tabcontent" style="height: 80px"></textarea>
+        <span class="font">*</span>
+        簡介內容：
+        <mat-form-field style="width: 80%">
+            <textarea matInput placeholder="請輸入內容" [(ngModel)]="tabcontent"  
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            maxlength="450" 
+            maxrows="20"
+            ></textarea>
         </mat-form-field>
     </div>
 </div>
-<div mat-dialog-actions>
-    <button class="btn-cancel" mat-button (click)="cancel()">cancel</button>&nbsp;| 
-    <button class="btn-confirm" mat-button (click)="confirm()" [(disabled)]="!tabname || !tabcontent">confirm</button>
-</div>
+<mat-dialog-actions align="end">
+    <button class="btn-warn" color="warn" mat-button (click)="cancel()">cancel</button>&nbsp;| 
+    <button class="btn-primary" color="primary" mat-button (click)="confirm()" [(disabled)]="!tabname || !tabcontent">confirm</button>
+</mat-dialog-actions>

@@ -1,0 +1,60 @@
+<div mat-dialog-title>
+    <div class="titletext">部門簡介</div>
+</div>
+<div mat-dialog-content>
+    <table>
+            <td width='5%'></td>
+            <td>
+                <div class="interviewer" (click)="modeer()"><strong>我是面試官</strong></div>
+            </td>
+            <td width='10%'></td>
+            <td>
+                <div class="interviewee" (click)="modeee()"><strong>我是面試者</strong></div>
+            </td>
+    </table>
+
+    <table *ngIf="getmode">
+        <tr *ngIf="getmode==='interviewer'"><td>
+            <span class="font">*</span>
+            員工編號：
+        </td>
+        <td>
+            <mat-form-field>
+                <input matInput placeholder="請輸入員工編號" [(ngModel)]="staffnum">
+            </mat-form-field>
+        </td></tr>
+        <tr><td>
+            <span class="font">*</span>
+            帳號(E-mail)：
+        </td>
+        <td>
+            <mat-form-field>
+                <input matInput placeholder="請輸入E-mail" [(ngModel)]="addaccount">
+            </mat-form-field>
+        </td></tr>
+        <tr><td>
+            <span class="font">*</span>
+            密碼：
+        </td>
+        <td>
+            <mat-form-field>
+                <input matInput type="{{pwdtype}}" placeholder="請輸入密碼" [(ngModel)]="addpassword">
+            </mat-form-field>
+            <button mat-icon-button (click)="changepwdtypetype()"><mat-icon>remove_red_eye</mat-icon></button>
+        </td></tr>
+        <tr><td>
+            <span class="font">*</span>
+            確認密碼：
+        </td>
+        <td>
+            <mat-form-field>
+                <input matInput type="{{repwdtype}}" placeholder="請再次輸入密碼" [(ngModel)]="repassword">
+            </mat-form-field>
+            <button mat-icon-button (click)="changerepwdtypetype()"><mat-icon>remove_red_eye</mat-icon></button>
+        </td></tr>
+    </table>
+</div>
+<mat-dialog-actions align="end">
+    <button class="btn-warn"  color="warn" mat-button (click)="cancel()">cancel</button>&nbsp;| 
+    <button class="btn-primary"  color="primary" mat-button (click)="confirm()" [(disabled)]="!addaccount || !addpassword || !repassword">confirm</button>
+</mat-dialog-actions>

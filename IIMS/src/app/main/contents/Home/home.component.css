@@ -5,26 +5,58 @@
 } */
  
 .swiper-slide{
-    width: 100% !important; 
+    width: 600px !important; 
     height: 500px;
+    /* display: flex; */
+    justify-content: center;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.1);
 }
 
 .swiper-container {
     /* position: absolute; */
-    top: 0;
+    top: 5px;
     right: 0;
     bottom: 0;
-    left: 0;
-    
+    left: 0; 
 }
 
 .content-container {
+    max-width: 900px;
     position: relative;
-  
     overflow: auto;
-    margin: 8px 16px;
+    margin: 0 auto;
     border-radius: 4px;
-  
-    background-color: rgb(201, 201, 201);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
+.dropimg {
+    height: 500px; 
+    width: 600px; 
+    /* background-color: rgba(151, 207, 245, 0.3); */
+    background-image: url('../../../../assets/image/addlogo.jpg');
+    text-align: center;
+    line-height: 200px;
+    color: rgb(194, 194, 194);
+}
+.dropimg:hover {
+    /* background-color: rgba(151, 207, 245,0.6); */
+    background-image: url('../../../../assets/image/hoveraddlogo.jpg');
+    color: rgb(126, 126, 126);
+    transition: 0s;
+}
+
+.previewimg {
+    opacity: 0.8;
+    height: 500px; 
+    width: 600px;
+    /* text-align: center; */
+}
+.previewimg:hover {
+    opacity: 0.5;
+    transition: 0s;
+}
+
+.swiper-none {
+    background-color: rgb(255, 255, 255);
+}

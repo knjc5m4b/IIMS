@@ -10,6 +10,7 @@ import { UploadFile } from 'ngx-file-drop';
     templateUrl: './test.component.html',
     styleUrls: ['./test.component.css']
 })
+
 export class TestComponent {
     @Input() name: string;
     @Input() content: string;
@@ -27,8 +28,16 @@ export class TestComponent {
     baseDropValid: any;
     lastFileAt: Date;
     testimg: any;
+    testimgs: any[string];
     index: number;
-
+    arraytest: Arraytest[] = [
+        {arrayid: 1 , arraycontent: this.testimgs},
+        {arrayid: 2 , arraycontent: this.testimgs},
+        {arrayid: 3 , arraycontent: this.testimgs},
+        {arrayid: 4 , arraycontent: this.testimgs},
+        {arrayid: 5 , arraycontent: this.testimgs},
+        {arrayid: 6 , arraycontent: this.testimgs},
+    ];
 
     constructor(
         public dialog: MatDialog,
@@ -77,12 +86,17 @@ export class TestComponent {
 
 
     getDate() {
+        let i = 0;
         const reader = new FileReader();
-        reader.readAsDataURL(this.files[0]);
-        reader.onload = () => {
-                this.testimg = reader.result;
-                console.log(this.testimg);
-        };
+        for ( i = 0 ; i < 6 ; i++ ) {
+            reader.readAsDataURL(this.files[0]);
+            reader.onload = () => {
+                    this.testimg = reader.result;
+                    this.testimgs[i] = this.testimg;
+                    console.log(this.testimg);
+                    return this.testimg;
+            };
+        }
         console.log(this.files);
         return new Date();
     }
@@ -101,4 +115,10 @@ export class TestComponent {
     //     });
     // }
 
+}
+
+
+export interface Arraytest {
+    arrayid: number;
+    arraycontent: string;
 }

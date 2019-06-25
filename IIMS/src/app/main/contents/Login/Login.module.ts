@@ -1,4 +1,4 @@
-import { HomeComponent } from './home.component';
+import { LoginComponent } from './login.component';
 
 import { NgModule } from '@angular/core';
 
@@ -7,18 +7,16 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/common/Material.module';
 // import { SwiperModule } from 'angular2-useful-swiper';
 import { SwiperModule, SWIPER_CONFIG, SwiperConfigInterface } from 'ngx-swiper-wrapper';
-import { TabDialogComponent } from './tab-dialog/tab-dialog.component';
+import { CreateDialogComponent } from './create-dialog/create-dialog.component';
 import { FileDropModule } from 'ngx-file-drop';
 import { ngfModule } from 'angular-file';
-import { MessageModule } from 'src/app/common/message-dialog/message.module';
-import { MessageDialogComponent } from 'src/app/common/message-dialog/message-dialog.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
-    // observer: true,
+    observer: true,
     direction: 'horizontal',
-    // threshold: 50,
-    spaceBetween: 30,
-    slidesPerView: 2,
+    threshold: 50,
+    spaceBetween: 50,
+    slidesPerView: 'auto',
     centeredSlides: true,
     navigation: true,
     autoplay: true,
@@ -36,14 +34,14 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 
 const Routes: Routes = [
     {   path: '',
-        component: HomeComponent
+        component: LoginComponent
     },
   ];
 
 @NgModule({
     declarations: [
-        HomeComponent,
-        TabDialogComponent,
+      LoginComponent,
+      CreateDialogComponent
     ],
     imports: [
       RouterModule.forRoot(Routes),
@@ -52,16 +50,14 @@ const Routes: Routes = [
       ReactiveFormsModule,
       FormsModule,
       FileDropModule,
-      ngfModule,
-      MessageModule
+      ngfModule
     ],
     exports: [
-      HomeComponent,
+      LoginComponent,
     ],
     entryComponents: [
-      HomeComponent,
-      TabDialogComponent,
-      MessageDialogComponent
+      LoginComponent,
+      CreateDialogComponent
     ],
     providers: [
       {
@@ -70,5 +66,5 @@ const Routes: Routes = [
       }
     ]
 })
-export class HomeModule {
+export class LoginModule {
 }
