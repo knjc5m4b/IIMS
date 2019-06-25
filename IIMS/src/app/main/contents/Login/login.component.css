@@ -1,0 +1,30 @@
+.body {
+    width: 500px;
+    margin:200px auto;
+    padding:10px 10px;
+    border-style: dashed;
+    border-radius: 10px;
+    border-color: rgba(0, 0, 0, 0.3)  
+}
+
+.btn-login {
+    text-align: end;
+    background-color: rgba(255, 0, 0, 0.1);
+    color: rgba(255, 0, 0, 0.5);
+}
+.btn-login:disabled {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: rgba(0, 0, 0, 0.3);
+    transition: 0s;
+}
+
+.btn-create {
+    text-align: end;
+    background-color: rgba(4, 0, 255, 0.1);
+    color: rgba(4, 0, 255, 0.5);
+}
+.btn-create:hover {
+    background-color: rgba(4, 0, 255, 0.1);
+    color: rgba(4, 0, 255, 0.5);
+    transition: 0s;
+}

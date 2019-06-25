@@ -10,13 +10,15 @@ import { SwiperModule, SWIPER_CONFIG, SwiperConfigInterface } from 'ngx-swiper-w
 import { TabDialogComponent } from './tab-dialog/tab-dialog.component';
 import { FileDropModule } from 'ngx-file-drop';
 import { ngfModule } from 'angular-file';
+import { MessageModule } from 'src/app/common/message-dialog/message.module';
+import { MessageDialogComponent } from 'src/app/common/message-dialog/message-dialog.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
-    observer: true,
+    // observer: true,
     direction: 'horizontal',
-    threshold: 50,
-    spaceBetween: 50,
-    slidesPerView: 'auto',
+    // threshold: 50,
+    spaceBetween: 30,
+    slidesPerView: 2,
     centeredSlides: true,
     navigation: true,
     autoplay: true,
@@ -41,7 +43,7 @@ const Routes: Routes = [
 @NgModule({
     declarations: [
         HomeComponent,
-        TabDialogComponent
+        TabDialogComponent,
     ],
     imports: [
       RouterModule.forRoot(Routes),
@@ -50,14 +52,16 @@ const Routes: Routes = [
       ReactiveFormsModule,
       FormsModule,
       FileDropModule,
-      ngfModule
+      ngfModule,
+      MessageModule
     ],
     exports: [
       HomeComponent,
     ],
     entryComponents: [
       HomeComponent,
-      TabDialogComponent
+      TabDialogComponent,
+      MessageDialogComponent
     ],
     providers: [
       {

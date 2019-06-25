@@ -1,0 +1,50 @@
+[
+    {
+      "towncode": "100",
+      "townname": "中正區"
+    },
+    {
+      "towncode": "103",
+      "townname": "大同區"
+    },
+    {
+      "towncode": "104",
+      "townname": "中山區"
+    },
+    {
+      "towncode": "105",
+      "townname": "松山區"
+    },
+    {
+      "towncode": "106",
+      "townname": "大安區"
+    },
+    {
+      "towncode": "108",
+      "townname": "萬華區"
+    },
+    {
+      "towncode": "110",
+      "townname": "信義區"
+    },
+    {
+      "towncode": "111",
+      "townname": "士林區"
+    },
+    {
+      "towncode": "112",
+      "townname": "北投區"
+    },
+    {
+      "towncode": "114",
+      "townname": "內湖區"
+    },
+    {
+      "towncode": "115",
+      "townname": "南港區"
+    },
+    {
+      "towncode": "116",
+      "townname": "文山區"
+    }
+  ]

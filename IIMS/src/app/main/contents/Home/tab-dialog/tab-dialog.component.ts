@@ -1,6 +1,5 @@
 import { Component, Input, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { UploadEvent, FileSystemFileEntry, FileSystemDirectoryEntry, UploadFile } from 'ngx-file-drop';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 
 @Component({
     selector: 'app-tab-dialog',
@@ -44,9 +43,7 @@ export class TabDialogComponent {
             this.tabdata = [this.tabcontent, this.tabimage];
             this.dialogRef.close(this.tabdata);
         }
-
     }
-
 
     getDate(index: number) {
         console.log(this.files);

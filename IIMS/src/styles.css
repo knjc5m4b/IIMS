@@ -1,0 +1,59 @@
+/* .body {
+    background-color: rgb(255, 255, 255);
+} */
+
+.btn-primary {
+    /* background-color: rgba(4, 0, 255, 0.1); */
+    text-align: end;
+    color: rgba(4, 0, 255, 0.5);
+}
+.btn-primary:hover {
+    color: rgba(4, 0, 255, 0.5);
+    background-color: rgba(4, 0, 255, 0.1);
+}
+.btn-primary:disabled {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: rgba(0, 0, 0, 0.5);
+    transition: 0s;
+}
+.btn-add {
+    /* background-color: rgba(4, 0, 255, 0.1); */
+    text-align: end;
+    color: rgba(4, 0, 255, 0.7);
+}
+.btn-add:hover {
+    color: rgba(4, 0, 255, 0.9);
+    background-color: rgba(4, 0, 255, 0.1);
+}
+
+.btn-warn {
+    text-align: end;
+    color: rgba(0, 0, 0, 0.3);
+}
+.btn-warn:hover {
+    background-color: rgba(255, 0, 0, 0.1);
+    color: rgba(255, 0, 0, 0.5);
+    transition: 0s;
+}
+
+
+.font {
+    /* 紅色*字->必填欄用 */
+    color: rgb(255, 0, 0);
+}
+
+.spanflex {
+    flex: 1 1 auto;
+}
+
+.addselect {
+    max-width: 100px;
+}
+
+.eduselect {
+    max-width: 150px;
+}
+
+.addinput {
+    width: 50%;
+}
