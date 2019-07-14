@@ -37,25 +37,11 @@ export class LoginComponent {
             this.loginservice.getUserData(this.data).subscribe(
                 (response: any) => {
                     if (response != null) {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 7c9a12f24fb3861dcfe5c7f5aedc97cba3d591ab
                         // alert(response) ;
                         location.href = './#Home' ;
                     } else {
                         alert('登入失敗!');
                     }
-<<<<<<< HEAD
-=======
-=======
-                        alert(response) ;
-                    } else {
-                        alert('登入失敗!');
-                    }
-                    // location.href = '../Home/home.component.html' ;
->>>>>>> 6658b386f5750f4843821dd3e3025949dc68382c
->>>>>>> 7c9a12f24fb3861dcfe5c7f5aedc97cba3d591ab
                 },
                 (error: HttpErrorResponse) => this.loginservice.HandleError(error)
               );
