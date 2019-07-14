@@ -8,7 +8,7 @@
             </td>
             <td>
                 <mat-form-field>
-                    <input matInput placeholder="請輸入E-mail" [(ngModel)]="account">
+                    <input name="account" matInput placeholder="請輸入E-mail" [(ngModel)]="account">
                 </mat-form-field>
             </td></tr>
             <tr><td>
@@ -16,7 +16,7 @@
                 密碼：
             </td><td>
                 <mat-form-field>
-                    <input matInput type="password" placeholder="請輸入密碼" [(ngModel)]="password">
+                    <input name="password" matInput type="password" placeholder="請輸入密碼" [(ngModel)]="password">
                 </mat-form-field>
             </td></tr>
         </td>
@@ -25,7 +25,7 @@
             <tr><td height="30%">&nbsp;</td></tr>
             <tr><td>
                 <div style="text-align: end">
-                        <button mat-button (click)="login()" [(disabled)]="!account || !password" color="primary" class="btn-primary">登入</button>&nbsp;|
+                        <button mat-button (click)="login()" [(disabled)]="!account || !password" color="primary" class="btn-primary" type="submit">登入</button>&nbsp;|
                         <button mat-button (click)="opendialog()" color="warn" class="btn-warn">註冊</button>
                 </div>    
             </td></tr>
