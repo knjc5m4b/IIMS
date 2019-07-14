@@ -37,11 +37,19 @@ export class LoginComponent {
             this.loginservice.getUserData(this.data).subscribe(
                 (response: any) => {
                     if (response != null) {
+<<<<<<< HEAD
                         // alert(response) ;
                         location.href = './#Home' ;
                     } else {
                         alert('登入失敗!');
                     }
+=======
+                        alert(response) ;
+                    } else {
+                        alert('登入失敗!');
+                    }
+                    // location.href = '../Home/home.component.html' ;
+>>>>>>> 6658b386f5750f4843821dd3e3025949dc68382c
                 },
                 (error: HttpErrorResponse) => this.loginservice.HandleError(error)
               );
