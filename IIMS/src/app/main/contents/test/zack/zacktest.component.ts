@@ -8,9 +8,9 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatInput} from '@angular/material/input';
 
 @Component ({
-    selector: 'app-yorikotest-component',
-    templateUrl: 'yorikotest.component.html',
-    styleUrls: ['yorikotest.component.css'],
+    selector: 'app-zacktest-component',
+    templateUrl: 'zacktest.component.html',
+    styleUrls: ['zacktest.component.css'],
 })
 
 
