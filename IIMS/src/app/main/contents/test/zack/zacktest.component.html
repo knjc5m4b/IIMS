@@ -7,13 +7,13 @@
                     {{conType.viewValue}}
                   </mat-option>
                 </mat-select>
-                
+                <mat-option  *ngIf="condition.type=='tacos-13'">
+                <input  matInput name="condition_text" placeholder="請輸入自訂義項目" [(ngModel)]="condition.other" >
+               </mat-option>
          </mat-form-field>
-         <mat-form-field  *ngIf="condition.type=='tacos-13'"> 
-          <input  matInput name="condition_text" placeholder="請輸入自訂義項目" [(ngModel)]="condition.other" > 
-        </mat-form-field >
+         
         
-         ：
+         
         <mat-form-field>
                 <input matInput placeholder="內容" [(ngModel)]="condition.value">
             </mat-form-field>
