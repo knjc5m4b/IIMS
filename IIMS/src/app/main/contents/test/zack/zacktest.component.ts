@@ -9,12 +9,12 @@ import {MatInput} from '@angular/material/input';
 
 @Component ({
     selector: 'app-zacktest-component',
-    templateUrl: 'zacktest.component.html',
-    styleUrls: ['zacktest.component.css'],
+    templateUrl: './zacktest.component.html',
+    styleUrls: ['./zacktest.component.css'],
 })
 
 
-export class YorikoTestComponent implements OnInit {
+export class ZackTestComponent implements OnInit {
     displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
     dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
     @ViewChild(MatPaginator) paginator: MatPaginator;
