@@ -513,6 +513,11 @@
   resolved "https://registry.yarnpkg.com/@types/hammerjs/-/hammerjs-2.0.36.tgz#17ce0a235e9ffbcdcdf5095646b374c2bf615a4c"
   integrity sha512-7TUK/k2/QGpEAv/BCwSHlYu3NXZhQ9ZwBYpzr9tjlPIL2C5BeGhH3DmVavRx3ZNyELX5TLC91JTz/cen6AAtIQ==
 
+"@types/intl-tel-input@^14.0.1":
+  version "14.0.1"
+  resolved "https://registry.yarnpkg.com/@types/intl-tel-input/-/intl-tel-input-14.0.1.tgz#f38f78b67823e79f31c7630ec7922410ef484119"
+  integrity sha512-1capY11Or9BlC9vqzPBYMVvn0sVSyzPb/dO0RcudX0nOS1WZ2VkhdZupHj7SwsKlcn7/L8xpKg+IlPpayJMcmA==
+
 "@types/jasmine@*":
   version "3.3.12"
   resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-3.3.12.tgz#bf282cb540e9ad7a0a04b742082c073b655eab39"
@@ -3528,6 +3533,11 @@ interpret@^1.0.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.2.0.tgz#d5061a6224be58e8083985f5014d844359576296"
   integrity sha512-mT34yGKMNceBQUoVn7iCDKDntA7SC6gycMAWzGx1z/CMCTV7b2AAtXlo3nRyHZ1FelRkQbQjprHSYGwzLtkVbw==
+
+intl-tel-input@^16.0.3:
+  version "16.0.3"
+  resolved "https://registry.yarnpkg.com/intl-tel-input/-/intl-tel-input-16.0.3.tgz#b8cd991486de61f01b2279db57fbfc2785c898db"
+  integrity sha512-GXibKQolfIO1b5dFQgBk9GBdfdU4KXliuaZqDPplw8caXFUBBgJE8+LXBBfQHGGXMSMpssIZeQoizjmT7WkU0g==
 
 invariant@^2.2.2:
   version "2.2.4"
