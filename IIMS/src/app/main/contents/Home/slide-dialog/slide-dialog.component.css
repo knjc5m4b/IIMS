@@ -1,0 +1,53 @@
+/* .btn-confirm:hover {
+    background-color: rgba(4, 0, 255, 0.1);
+    color: rgba(4, 0, 255, 0.5);
+    transition: 0s;
+} */
+
+
+.titlestyle {
+    height: 50px; 
+    background-color: rgba(76, 0, 255,0.5);
+}
+
+.imaged {
+    height: 200px; 
+    width: 200px;
+}
+
+.imaged:hover .deletebtn {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.imagebtn {
+    height: 20px; 
+    width: 220px;
+    z-index: 1;
+}
+
+.deletebtn {
+    color: rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+
+
+.previewimg {
+    height: 200px; 
+    width: 200px;
+    /* text-align: center; */
+    border-radius: 10px;
+}
+.imaged:hover .previewimg {
+    opacity: 0.5;
+    transition: 0s;
+}
+
+
+mat-dialog-actions {
+    justify-content: flex-end;
+}
+
+mat-dialog-content {
+    height: 600px;
+}
