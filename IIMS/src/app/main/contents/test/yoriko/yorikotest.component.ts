@@ -6,6 +6,17 @@ import { TabDialogComponent } from '../../Home/tab-dialog/tab-dialog.component';
 import Swiper from 'swiper';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInput} from '@angular/material/input';
+/*---------------------------------------------------------------------------*/
+import { AddressService } from '../../../../common/address.service';
+import { Injector, forwardRef, Inject } from '@angular/core';
+import * as moment from 'moment';
+import { Validators } from '@angular/forms';
+import { X2JS } from '../../../../../../node_modules/xml2js';
+import { HttpErrorResponse } from '@angular/common/http';
+import { AddCityDetail } from 'src/app/common/addCity_detail';
+import { AddAreaDetail } from 'src/app/common/addArea_detail';
+// import * as intlTellnput from 'C:/Users/USER/Documents/GitHub/IIMS/IIMS/node_modules/intl-tel-input/build/js/intlTelInput.js';
+// import * as intlTelInput from 'intl-tel-input';
 
 @Component ({
     selector: 'app-yorikotest-component',
@@ -13,9 +24,125 @@ import {MatInput} from '@angular/material/input';
     styleUrls: ['yorikotest.component.css'],
 })
 
-
 export class YorikoTestComponent implements OnInit {
-    displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+
+    @Input() familyname: string;
+    @Input() givenname: string;
+    @Input() gender: string;
+    @Input() brdate: string;
+    @Input() email: string;
+
+    iti: any;
+    phoneInput:　HTMLInputElement;
+    el: any;
+    tabimage: any;
+    tabdata = [];
+    files: File[] = [];
+    progress: number;
+    dragFiles: any;
+    validComboDrag: any;
+    lastInvalids: any;
+    fileDropDisabled: any;
+    baseDropValid: any;
+    lastFileAt: Date;
+
+    firstyear = 60 * 60 * 24 * 365 * 14 * 1000;
+    secondyear = 60 * 60 * 24 * 366 * 4 * 1000;
+    // 18年將經過4個閏年14平年
+    date = new Date();
+    minDate = moment(new Date(1919, 0, 1));
+    maxDate = moment(this.date.getTime() - this.firstyear - this.secondyear);
+    yearname = '';
+
+    emailFormControl = new FormControl('', [
+        Validators.required,
+        Validators.email,
+    ]);
+
+    item: any;
+    items: Array<any>;
+    citySelect: Array<AddCityDetail> = new Array<AddCityDetail>();
+    areaSelect: Array<AddAreaDetail> = new Array<AddAreaDetail>();
+    allcity: Array<AddCityDetail> = new Array<AddCityDetail>();
+    allarea: Array<AddAreaDetail> = new Array<AddAreaDetail>();
+
+
+    @Input() seletctcitydata: string;
+    @Input() seletctareadata: string;
+    @Input() seletctedudata: string;
+
+    educationll: Education1[] = [
+      {row: 1, educationll: '博士'},
+      {row: 2, educationll: '碩士'},
+      {row: 3, educationll: '學士'},
+      {row: 4, educationll: '副學士'},
+      {row: 5, educationll: '高中'},
+      {row: 6, educationll: '國中(含)以下'},
+  ];
+
+  experience: Education2[] = [
+      {row: 1, experience: '無'},
+      {row: 2, experience: '未滿一年'},
+      {row: 3, experience: '1~5年'},
+      {row: 4, experience: '6~10年'},
+      {row: 5, experience: '10~15年'},
+      {row: 6, experience: '15以上'},
+  ];
+
+
+   Trans: Education4[] = [
+      {row: 1, Trans: '汽車'},
+      {row: 2, Trans: '機車'},
+      {row: 3, Trans: '無'},
+  ];
+
+
+    constructor(
+        private addressService: AddressService,
+        injector: Injector,
+    ) {}
+
+    ngOnInit() {
+        console.log('開始');
+        this.onint();
+    }
+
+    onint() {
+        this.getCityData();
+    }
+    getCityData() {
+        this.addressService.getCityData().subscribe(
+          (response: any) => {
+            this.allcity = response;
+            // this.allcity = response.X2JS;
+            console.log(this.allcity);
+          },
+          (error: HttpErrorResponse) => this.addressService.HandleError(error)
+        );
+    }
+    getAreaData(code: string) {
+        this.addressService.getAreaData(code).subscribe(
+          (response: any) => {
+            this.allarea = response;
+            console.log(this.allarea);
+          },
+          (error: HttpErrorResponse) => this.addressService.HandleError(error)
+        );
+    }
+    /* ngOnIniz() {
+      this.phoneInput = this.el.nativeElement.querySelector('#phoneNum');
+      this.iti = intlTelInput(
+      this.phoneInput,
+        {
+          allowDropdown: true,
+          initialCountry: 'tw',
+          separateDialCode: true
+        }
+      );
+    } */
+
+    // 以上為履歷表
+    /*     displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
     dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
     @ViewChild(MatPaginator) paginator: MatPaginator;
     @Input() name: string;
@@ -56,12 +183,14 @@ export class YorikoTestComponent implements OnInit {
 
       remove(index: number) {
         this.conditions.splice(index, 1);
-      }
+      } */
+
+      /*--------------------------------------------------------------------------------------------*/
 
 }
 
 
-export interface PeriodicElement {
+/* export interface PeriodicElement {
   name: string;
   position: number;
   weight: number;
@@ -99,6 +228,20 @@ export class TheCondition {
   type: string;
   value: string;
   other: string;
+} */
+
+/*履歷*/
+export interface Education1 {
+  row: number;
+  educationll: string;
+}
+export interface Education2 {
+  row: number;
+  experience: string;
+}
+export interface Education4 {
+  row: number;
+  Trans: string;
 }
 
 
@@ -106,5 +249,6 @@ export class TheCondition {
    * @title Basic select
    */
 /*------------------------------------------------------------------------*/
+
 
 
