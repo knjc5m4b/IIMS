@@ -12,6 +12,8 @@ import { FileDropModule } from 'ngx-file-drop';
 import { ngfModule } from 'angular-file';
 import { MessageModule } from 'src/app/common/message-dialog/message.module';
 import { MessageDialogComponent } from 'src/app/common/message-dialog/message-dialog.component';
+import { LoginService } from 'src/app/common/login.service';
+import { SlideDialogComponent } from './slide-dialog/slide-dialog.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     // observer: true,
@@ -44,6 +46,7 @@ const Routes: Routes = [
     declarations: [
         HomeComponent,
         TabDialogComponent,
+        SlideDialogComponent
     ],
     imports: [
       RouterModule.forRoot(Routes),
@@ -61,9 +64,11 @@ const Routes: Routes = [
     entryComponents: [
       HomeComponent,
       TabDialogComponent,
+      SlideDialogComponent,
       MessageDialogComponent
     ],
     providers: [
+      LoginService,
       {
         provide:　SWIPER_CONFIG,
         useValue: DEFAULT_SWIPER_CONFIG

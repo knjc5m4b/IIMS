@@ -1,72 +1,44 @@
+<!-- <div>
+    <input type="file" [(ngModel)]="image">
+    <button (click)="getUrl()">上傳</button>
+</div> -->
+<!-- 
+    <div *ngFor="let item of files">
+        <img *ngIf="imgupload" [src]='img[files.length-1]'>
+    </div>
 
-<!-- test -->
-<!-- <mat-tab-group>
-        <mat-tab label="公司簡介" class="mat-tab-label mat-ink-bar" name='cpmpany'></mat-tab>
-        <mat-tab label="部門簡介" class="mat-tab-label mat-ink-bar" name='object'></mat-tab>
-</mat-tab-group> -->
+<div class="test" 
+ngfDrop
+multiple         = "1"
+selectable       = "1"
+[(validDrag)]    = "validComboDrag"
+[(files)]        = "files"
+accept           = "image/*"
+[maxSize]        = "maxSize"
+[(lastInvalids)] = "lastInvalids"
+[(dragFiles)]    = "dragFiles"
+[class.invalid-drag] = "validComboDrag===false"
+[class.valid-drag]   = "validComboDrag"
+(filesChange) = "getUrl()"
+[fileDropDisabled] = "fileDropDisabled"></div> -->
 
-        <!-- <div>
-            <mat-form-field>
-                <input matInput placeholder="name" [(ngModel)]="name">
-            </mat-form-field>            
-            <button mat-raised-button class="example-add-tab-button" (click)="addTab()"> 新增部門 </button>
-            <button mat-raised-button (click)="opendialog()"> open </button>
-        </div>
-        <mat-tab-group [selectedIndex]="selected.value" (selectedIndexChange)="selected.setValue($event)">
-            <mat-tab label="部門簡介" class="mat-tab-label mat-ink-bar" disabled></mat-tab>
-            <mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab">{{tab}} 部門簡介
-                <div>
-                    <textarea [(ngModel)]="content"></textarea>
-                    <p>{{contents}}</p>
+
+    <input type="file" (change)="imgupload($event)">
+    <div *ngIf="slideimage">
+        <div class="imaged">
+            <div *ngIf="allimages.length > 0">
+                <div *ngFor="let item of allimages; let index = index">
+                    <div class="imagebtn" align="right"><button mat-icon-button class="deletebtn" (click)="deleteimg(index)"><mat-icon>cancel</mat-icon></button></div>
+                    <img class="previewimg" [src]="item">
                 </div>
-                <button mat-raised-button class="example-delete-tab-button" color="primary" (click)="submit($event)"> 儲存 </button>
-                <button mat-raised-button class="example-delete-tab-button" [disabled]="tabs.length === 0" (click)="removeTab(index)"> 刪除部門 </button>
-            </mat-tab>
-        </mat-tab-group> -->
-
-        <!-- <form action="/file-upload" class="dropzone" id="my-awesome-dropzone">
-            <div class="test dropzone" file="image" accept="[image/png, image/jpeg, image/gif]">
-                <span class="text">Drag & Drop Here!</span>
-                <input type="file" class="dropzone"  placeholder="image">
-            </div> 
-        </form> -->
-
-        <!-- <div ngFileDropzone (fileDrop)="addFile($event)" [ngClass]="{'hover': isHover }" (dragenter)="isHover = true" (dragleave)="isHover = false" (drop)="isHover = false">
-            <md-icon class="big">file_upload</md-icon>
-          </div>
-          
-          <h2 *ngIf="files.length">Dropped files</h2>
-          <ul>
-            <li *ngFor="let file of files">
-              {{file.name}} ({{file.size}} bytes)
-            </li>
-        </ul> -->
-
-        <!-- <div class="test">
-            <form action="" class="dropzone" method="post" enctype="multipart/form-data">
-                <input type="file" name="file" />
-            </form>
-        </div> -->
-        <div
-            ngfDrop
-            multiple         = "1"
-            selectable       = "1"
-            [(validDrag)]    = "validComboDrag"
-            [(files)]        = "files"
-            accept           = "image/*"
-            [maxSize]        = "maxSize"
-            [(lastInvalids)] = "lastInvalids"
-            [(dragFiles)]    = "dragFiles"
-            class            = "test"
-            [class.invalid-drag] = "validComboDrag===false"
-            [class.valid-drag]   = "validComboDrag"
-            (filesChange) = "lastFileAt=getDate()"
-            [fileDropDisabled] = "fileDropDisabled"
-      >
-        <div *ngFor="let item of files; let i = index">
-            <div *ngIf="['image/gif','image/png','image/jpeg'].indexOf(item.type)>=0">
-                <img [src]="testimgs[i]">
             </div>
-            <strong>{{ item.name }}</strong>
+            <!-- <div *ngIf="allimages.length > 1">
+                <div class="imagebtn" align="right"><button mat-icon-button class="deletebtn" (click)="deleteimg(1)"><mat-icon>cancel</mat-icon></button></div>
+                <img class="previewimg" [src]="allimages[1]">
+            </div>
+            <div *ngIf="allimages.length > 2">
+                <div class="imagebtn" align="right"><button mat-icon-button class="deletebtn" (click)="deleteimg(2)"><mat-icon>cancel</mat-icon></button></div>
+                <img class="previewimg" [src]="allimages[2]">
+            </div> -->
         </div>
     </div>

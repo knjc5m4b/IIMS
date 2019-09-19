@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { ViewModule } from './view/view.module';
 import { ViewComponent } from './view/view.component';
+import { ngfModule } from 'angular-file';
 
 const Routes: Routes = [
     {   path: 'view',
@@ -23,7 +24,8 @@ const Routes: Routes = [
         ReactiveFormsModule,
         FormsModule,
         CommonModule,
-        ViewModule
+        ViewModule,
+        ngfModule
     ],
     exports: [
         RouterModule,

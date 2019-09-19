@@ -1,6 +1,6 @@
-import { Component, Input, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, Input, ViewChild, AfterViewInit, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { MatSidenav, MatDialog, MatDialogRef } from '@angular/material';
+import { MatSidenav, MatDialog, MatDialogRef, MAT_RADIO_GROUP_CONTROL_VALUE_ACCESSOR } from '@angular/material';
 import { TabDialogComponent } from '../../Home/tab-dialog/tab-dialog.component';
 import Swiper from 'swiper';
 import { UploadFile } from 'ngx-file-drop';
@@ -11,114 +11,66 @@ import { UploadFile } from 'ngx-file-drop';
     styleUrls: ['./test.component.css']
 })
 
-export class TestComponent {
-    @Input() name: string;
-    @Input() content: string;
-    @Input() tabname: string;
-    @Input() tabcontent: string;
-    tabimage: null;
-    @ViewChild('sidenav') sidenav: MatSidenav;
-    maxSize: 3000;
-    files: File[] = [];
-    progress: number;
-    dragFiles: any;
-    validComboDrag: any;
-    lastInvalids: any;
-    fileDropDisabled: any;
-    baseDropValid: any;
-    lastFileAt: Date;
-    testimg: any;
-    testimgs: any[string];
-    index: number;
-    arraytest: Arraytest[] = [
-        {arrayid: 1 , arraycontent: this.testimgs},
-        {arrayid: 2 , arraycontent: this.testimgs},
-        {arrayid: 3 , arraycontent: this.testimgs},
-        {arrayid: 4 , arraycontent: this.testimgs},
-        {arrayid: 5 , arraycontent: this.testimgs},
-        {arrayid: 6 , arraycontent: this.testimgs},
-    ];
-
+export class TestComponent implements OnInit {
+    @Input() image: any;
+    // files: File[] = [];
+    // img: Img[] = [];
+    // imgurl: any;
+    // imgupload: boolean;
+    slideimage: any;
+    allimages: any[] = [];
+    slidedata = [];
     constructor(
-        public dialog: MatDialog,
-        // public dialogRef: MatDialogRef<TabDialogComponent>,
+
     ) {
     }
-
-    tabIndex = 1;
-    contents = '';
-    tabs = [];
-    selected = new FormControl(0);
-    myswiper: Swiper;
-
-    // ngAfterViewInit() {
-    //     this.myswiper = new Swiper('.swiper-container', {
-    //         pagination: '.swiper-pagination',
-    //         paginationClickable: true,
-    //         nextButton: '.swiper-button-next',
-    //         prevButton: '.swiper-button-prev',
-    //         autoplay: 3000,
-    //         spaceBetween: 30
-    //     });
-    // }
-
-    addTab() {
-        if (this.name === undefined || this.name === '' || this.name === null) {
-            alert('name is null!');
-
-        } else {
-            this.tabs.push(this.name);
-            this.selected.setValue(this.tabs.length);
-        }
-        this.name = '';
-    }
-    removeTab(index: number) {
-        this.tabs.splice(index, 1);
+    ngOnInit() {
     }
 
-    submit() {
-        if (this.content !== undefined) {
-            this.contents = this.content;
-        } else {
-            alert('name is null!');
+    imgupload(event) {
+        if (event.target.files && event.target.files.length >= 0) {
+            let i: number;
+            for (i = 0 ; i < event.target.files.length ; i ++) {
+                const reader = new FileReader();
+                reader.readAsDataURL(event.target.files[i]); // read file as data url
+                reader.onload = () => { // called once readAsDataURL is completed
+                  this.slideimage = reader.result;
+                  this.allimages.push(this.slideimage);
+                  console.log(this.slideimage);
+                };
+            }
         }
     }
 
-
-    getDate() {
-        let i = 0;
-        const reader = new FileReader();
-        for ( i = 0 ; i < 6 ; i++ ) {
-            reader.readAsDataURL(this.files[0]);
-            reader.onload = () => {
-                    this.testimg = reader.result;
-                    this.testimgs[i] = this.testimg;
-                    console.log(this.testimg);
-                    return this.testimg;
-            };
-        }
-        console.log(this.files);
-        return new Date();
+    deleteimg(index: number) {
+        this.allimages.splice(index, 1);
+        console.log('index:', index);
+        // this.slideimage = '';
+        // if (this.slideimage) {
+        //     this.allimages.splice(index, 1);
+        //     this.slideimage = '';
+        // }
     }
-
-    // opendialog() {
-    //     const dialogRef = this.dialog.open(TabDialogComponent, {
-    //         width: '250px',
-    //         data: {
-    //             tabname: this.tabname,
-    //             tabcontent: this.tabcontent
+    // getUrl() {
+    //     console.log(this.files);
+    //     // if (this.image) {
+    //     //     this.files.push(this.image);
+    //     // }
+    //     for (let i = 0 ; i < this.files.length ; i++) {
+    //         if (this.files) {
+    //             const reader = new FileReader();
+    //             reader.readAsDataURL(this.files[i]);
+    //             reader.onload = () => {
+    //                 this.imgurl = reader.result;
+    //                 this.img.push(this.imgurl);
+    //                 this.imgupload = true;
+    //                 console.log(this.img[i]);
+    //             };
     //         }
-    //     });
-    //     dialogRef.afterClosed().subscribe(res => {
-    //         this.tabname = res;
-    //         this.tabcontent = res;
-    //     });
+    //     }
     // }
-
 }
 
-
-export interface Arraytest {
-    arrayid: number;
-    arraycontent: string;
+export interface Img {
+    url: any;
 }
