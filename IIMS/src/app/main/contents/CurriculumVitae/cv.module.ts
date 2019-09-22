@@ -10,6 +10,9 @@ import { from } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { MAT_DATE_FORMATS } from '@angular/material';
 import { AddressService } from 'src/app/common/address.service';
+import { FileDropModule } from 'ngx-file-drop';
+import { HttpClientModule } from '@angular/common/http';
+import { ngfModule } from 'angular-file';
 
 const Routes: Routes = [
 
@@ -26,7 +29,7 @@ export const MY_FORMATS = {
       dateInput: 'LL',
     },
     display: {
-      dateInput: 'LL',
+      dateInput: 'YYYY/MM/DD',
       monthYearLabel: 'MMM YYYY',
       dateA11yLabel: 'LL',
       monthYearA11yLabel: 'MMMM YYYY',
@@ -41,6 +44,11 @@ export const MY_FORMATS = {
         MaterialModule,
         RouterModule.forRoot(Routes),
         MatMomentDateModule,
+        FormsModule,
+        CommonModule,
+        FileDropModule,
+        HttpClientModule,
+        ngfModule
     ],
     exports: [
         RouterModule,

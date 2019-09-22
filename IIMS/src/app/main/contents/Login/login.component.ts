@@ -13,7 +13,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class LoginComponent {
     @Input() account: string;
     @Input() password: string;
-    data: Accdata = {account: this.account, password: this.password};
+    @Input() usertype: string;
+    data: Accdata = {account: this.account, password: this.password, usertype: this.usertype};
 
     addaccount = '';
     addpassword = '';
@@ -31,6 +32,11 @@ export class LoginComponent {
         } else if (this.password === undefined) {
             alert('未輸入密碼!');
         } else {
+            if (this.usertype === 'interviewer') {
+                this.data.usertype = this.usertype;
+            } else if (this.usertype === 'interviewee') {
+                this.data.usertype = this.usertype;
+            }
             this.data.account = this.account;
             this.data.password = this.password;
             console.log(this.data);
@@ -74,6 +80,7 @@ export class LoginComponent {
 }
 
 export interface Accdata {
+    usertype: string;
     account: string;
     password: string;
 }
