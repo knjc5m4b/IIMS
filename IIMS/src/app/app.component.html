@@ -1,5 +1,9 @@
 <script src="xml2json.js"></script> 
+<script src="../../node_modules/intl-tel-input/build/js/intlTelInput.js"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://i.icomoon.io/public/temp/cba36fb5c5/UntitledProject/style.css">
+<link rel="stylesheet" type="text/css" href="../assets/css/intlTelInput.css">
 <div class="mat-app-background">
   <mat-toolbar class="fixed-header">
     <button mat-icon-button (click)="sidenav.toggle()">
@@ -22,10 +26,8 @@
     <mat-sidenav #sidenav mode="side" fixedTopGap="20" opened  class="contentwidth" >
         <div class="menu" *ngFor="let menu of menu; let index of index">
           <mat-nav-list>
-                <a class="menutext" mat-list-item [routerLink]="menu.routerLink">{{menu.viewValue}}</a>
-
+              <br><a  class="{{menu.url}}" mat-list-item [routerLink]="menu.routerLink">{{menu.viewValue}}</a>
           </mat-nav-list>
-          <mat-divider class="contentwidth"></mat-divider>
         </div>
     </mat-sidenav>
     <mat-sidenav-content>

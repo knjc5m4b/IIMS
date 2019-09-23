@@ -33,13 +33,13 @@
                     <div class= "dropimg" *ngIf="files.length === 0" >
                     <!-- <span class="droptext"><mat-icon>add</mat-icon></span> <br> -->
                         <span >Drag & Drop An Image Here!</span>
+                    </div>
                     <!-- <input type="file" class="dropzone" file-dropzone="[image/png, image/jpeg, image/gif]" file="image" placeholder="image" (change)="onSelectFile($event)"> -->
                         <div *ngFor="let item of files; let i = index" >
                             <div *ngIf="['image/gif','image/png','image/jpeg'].indexOf(item.type)>=0">
                                 <img class="previewimg" *ngIf="tabimage"  [src]="tabimage" height="200" assept="img/*">
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
         </td>
