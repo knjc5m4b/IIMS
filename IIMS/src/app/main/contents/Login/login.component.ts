@@ -44,7 +44,7 @@ export class LoginComponent {
                 (response: any) => {
                     if (response != null) {
                         // alert(response) ;
-                        location.href = './#Home' ;
+                        location.href = './#home' ;
                     } else {
                         alert('登入失敗!');
                     }
