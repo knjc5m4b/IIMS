@@ -3,22 +3,34 @@
     <table>
         <td>
             <tr><td>
-                <span class="font">*</span>
-                帳號(E-mail)：
-            </td>
-            <td>
-                <mat-form-field>
-                    <input name="account" matInput placeholder="請輸入E-mail" [(ngModel)]="account">
-                </mat-form-field>
+                <mat-radio-group aria-label="Select an option" [(ngModel)]="usertype">
+                    <mat-radio-button color="primary"  value="interviewer">公司使用者</mat-radio-button>&nbsp;
+                    <mat-radio-button color="primary"  value="interviewee">面試者</mat-radio-button>
+                </mat-radio-group>
             </td></tr>
             <tr><td>
-                <span class="font">*</span>
-                密碼：
-            </td><td>
-                <mat-form-field>
-                    <input name="password" matInput type="password" placeholder="請輸入密碼" [(ngModel)]="password">
-                </mat-form-field>
-            </td></tr>
+            <tr>
+                <td>
+                    <span class="font">*</span>
+                    帳號(E-mail)：
+                </td>
+                <td>
+                    <mat-form-field>
+                        <input name="account" matInput placeholder="請輸入E-mail" [(ngModel)]="account">
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="font">*</span>
+                    密碼：
+                </td>
+                <td>
+                    <mat-form-field>
+                        <input name="password" matInput type="password" placeholder="請輸入密碼" [(ngModel)]="password">
+                    </mat-form-field>
+                </td>
+            </tr>
         </td>
         <td>
             <tr><td height="30%">&nbsp;</td></tr>

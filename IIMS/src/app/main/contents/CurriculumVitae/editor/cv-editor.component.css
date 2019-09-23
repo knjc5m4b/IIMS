@@ -1,0 +1,73 @@
+.previewimg {
+    height: 150px; 
+    width: 250px; 
+    /* text-align: center; */
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.1);
+}
+.previewimg:hover {
+    border-color: rgba(0, 0, 0, 0.8);
+    color: rgb(8, 8, 8);
+    transition: 0s;
+}
+
+.dropimg {
+    height: 150px; 
+    width: 250px; 
+    background-color: rgba(28, 102, 151, 0.3);
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.1);
+    text-align: center;
+    line-height:150px;
+    color: rgb(0, 0, 0);
+}
+.dropimg:hover {
+    background-color: rgb(191, 208, 255);
+    border-color: rgba(0, 0, 0, 0.8);
+    color: rgb(8, 8, 8);
+    transition: 0s;
+}
+
+.languageop {
+    width: 60px;
+}
+
+.languageall {
+    width: 100px;
+}
+
+.iti__flag { 
+    background-image: url(../../../../../../node_modules/intl-tel-input/build/img/flags.png);
+}
+
+@media (-webkit-min-device-pixel-radio:2) {
+    .iti__flag {
+        background-image: url(../../../../../../node_modules/intl-tel-input/build/img/flags@2x.png);
+    }
+}
+
+.phone, button {
+    height: 30px;
+    margin: 0;
+    padding: 6px 12px;
+    border-radius: 2px;
+    /* border: 1px solid; */
+    font-family: inherit;
+    font-size: 100%;
+    color: inherit; }
+  
+.phone, select {
+    /* border-bottom: 1px solid rgba(8, 8, 8, 0.5); */
+    width: 300px; 
+}
+  
+  ::-webkit-input-placeholder {
+    color: #BBB; }
+  
+  ::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #BBB;
+    opacity: 1; }
+  
+  :-ms-input-placeholder {
+    color: #BBB; }

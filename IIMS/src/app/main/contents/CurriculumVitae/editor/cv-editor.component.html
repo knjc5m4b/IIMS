@@ -1,30 +1,48 @@
 <h1>履歷表</h1>
     <!-- 姓 名：<input type="text" name="name" size="20"><br><br> -->
-    <div> 姓氏：
-        <mat-form-field>
+
+<mat-card>
+    <div align="end">
+        <button mat-button align="end" (click)="reviewdata()" class="btn-warn">OK</button>
+    </div>
+    <div>姓 氏：
+        <mat-form-field floatLabel="never">
            <input matInput placeholder="請輸入您的姓氏" [(ngModel)]="familyname" maxlength="5">
         </mat-form-field>
-         名字：
-        <mat-form-field>
+         名 字：
+        <mat-form-field floatLabel="never">
            <input matInput placeholder="請輸入您的名字" [(ngModel)]="givenname" maxlength="5">
         </mat-form-field>
     </div>
-    <div> 性 別：
+    <div>性 別：
         <mat-radio-group aria-label="Select an option" [(ngModel)]="gender">
           <mat-radio-button value="男">男</mat-radio-button>
           <mat-radio-button value="女">女</mat-radio-button>
         </mat-radio-group>
     </div>
 
-    <div>生 日：
-        <mat-form-field>
+    <div>出生年月日：
+        <mat-form-field floatLabel="never">
             <input matInput [matDatepicker]="picker" placeholder="請選擇您的生日" [max]="maxDate" [min]="minDate" [(ngModel)]="brdate">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker [startAt]="startDate"></mat-datepicker>
         </mat-form-field>
     </div>
+
+    <div>服役狀況：
+        <mat-radio-group aria-label="Select an option" [(ngModel)]="service">
+          <mat-radio-button value='已完成'>已完成</mat-radio-button>
+          <mat-radio-button value='尚未'>尚未</mat-radio-button>
+           <mat-radio-button value='無須服役'>無須服役</mat-radio-button>
+        </mat-radio-group>
+    </div>
+     <div>行動電話：
+        <mat-form-field class="phone">
+            <input matInput id="phoneNum" name="phoneNum" type="tel" οninput="value=value.replace(/[^\d]/g,'')" [(ngModel)]="phonenum">
+        </mat-form-field>
+    </div>
     <div>Email：
-        <mat-form-field>
+        <mat-form-field floatLabel="never">
             <input matInput placeholder="Email" [(ngModel)]="email" [formControl]="emailFormControl" maxlength="100" >
             <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
                 Please enter a valid email address
@@ -34,53 +52,356 @@
             </mat-error>
         </mat-form-field> 
     </div>
-    <div>手 機：
-        <mat-form-field class="example-full-width">
-            <span matPrefix>+86 &nbsp;</span>
-            <input type="tel" matInput placeholder="Telephone" maxlength="10">
-            <mat-icon matSuffix>mode_edit</mat-icon>
-        </mat-form-field>
-    </div>
     <div>地址： 
-        <ng-container *ngIf="seletctareadata">
-            <span>{{seletctareadata}}</span>&nbsp;
-        </ng-container>
-        
-        <mat-form-field class="addselect">
-            <mat-label>縣市</mat-label>
-            <mat-select [(ngModel)]="seletctcitydata">
-                <mat-option *ngFor="let city of allcity" [value]="city.countycode" (click)="getAreaData(seletctcitydata)">
-                    <!-- <button mat-button (click)="getAreaData()"></button> -->
-                    {{city.countyname}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
-        &nbsp;
-        <mat-form-field class="addselect">
-            <mat-label>區域</mat-label>
-            <mat-select [(ngModel)]="seletctareadata">
-                <mat-option *ngFor="let area of allarea" [value]="area.towncode">
-                    {{area.townname}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
-        &nbsp;
-        <mat-form-field class="addinput">
-            <input matInput placeholder="地址">
+        <mat-form-field class="addinput" floatLabel="never">
+            <input matInput placeholder="地址" [(ngModel)]="address">
         </mat-form-field>
     </div>
-    學  歷：
-	<mat-form-field class="eduselect">
-        <mat-label>學歷</mat-label>
-        <mat-select [(ngModel)]="seletctedudata">
-            <mat-option *ngFor="let edu of education" [value]="edu.row">
-                {{edu.education}}
+    
+    <div>最高學歷：
+        <mat-form-field  style="width: 280px" floatLabel="never">
+           <input matInput placeholder="請選擇您的學校"  maxlength="25" [(ngModel)]="school">
+        </mat-form-field>
+        系所名稱：
+        <mat-form-field floatLabel="never">
+           <input matInput placeholder="請輸入您的系所名稱"  maxlength="10" [(ngModel)]="department">
+        </mat-form-field>
+    </div>   
+</mat-card>
+<br>
+<mat-card>
+    <div>期望薪資：
+        <mat-form-field floatLabel="never">
+           <input matInput placeholder="請輸入您期望之薪資待遇" maxlength="10" [(ngModel)]="money">
+        </mat-form-field>
+    </div>
+</mat-card>  
+<br>
+<mat-card>
+    <div>累積工作經驗：
+        <mat-form-field floatLabel="never">
+         <mat-label>就業年資</mat-label>
+          <mat-select [(ngModel)]="workyears">
+            <mat-option *ngFor="let exp of experience" [value]="exp.experience">
+                {{exp.experience}}
             </mat-option>
-        </mat-select>
-    </mat-form-field>
-        <!-- 希望薪資：
-            <input type="text" name="mo" size="10"><br>
-            <input type="radio" name="money" value="Negotiable">面議
-            <input type="radio" name="money2" value="per">依公司規定
-        <input type="submit" value="儲存"/> -->
+          </mat-select>
+        </mat-form-field>
+    </div>  
+    <div>歷年工作職務類別：
+        <mat-form-field floatLabel="never">
+           <input matInput placeholder="請輸入工作類別" maxlength="10" [(ngModel)]="worktype">
+        </mat-form-field>
+        職務名稱：
+        <mat-form-field floatLabel="never">
+           <input matInput placeholder="請輸入職務名稱"maxlength="10" [(ngModel)]="workname">
+        </mat-form-field>
+        薪資待遇：
+        <mat-form-field floatLabel="never">
+           <input matInput placeholder="請輸入薪資待遇"maxlength="10" [(ngModel)]="workmoney">
+        </mat-form-field>
+    </div> 
+</mat-card>
+<br>
+<mat-card>
+    <div>語言程度
+        <div>中文程度：
+            <mat-form-field class="languageop">
+                <mat-label>聽</mat-label>
+                <mat-select [(ngModel)]="seletctcL">
+                    <mat-option *ngFor="let  lan  of Language" [value]="lan.level">
+                        {{lan.level}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            &nbsp;
+            <mat-form-field class="languageop">
+                <mat-label>說</mat-label>
+                <mat-select [(ngModel)]="seletctcS">
+                    <mat-option *ngFor="let  lan  of Language" [value]="lan.level">
+                        {{lan.level}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            &nbsp;
+            <mat-form-field class="languageop">
+                <mat-label>讀</mat-label>
+                <mat-select [(ngModel)]="seletctcR">
+                    <mat-option *ngFor="let  lan  of Language" [value]="lan.level">
+                        {{lan.level}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            &nbsp;
+            <mat-form-field class="languageop">
+                <mat-label>寫</mat-label>
+                <mat-select [(ngModel)]="seletctcW">
+                    <mat-option *ngFor="let  lan  of Language" [value]="lan.level">
+                        {{lan.level}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div>英文程度：
+            <mat-form-field class="languageop">
+                <mat-label>聽</mat-label>
+                <mat-select [(ngModel)]="seletcteL">
+                    <mat-option *ngFor="let  lan  of Language" [value]="lan.level">
+                        {{lan.level}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            &nbsp;
+            <mat-form-field class="languageop">
+                <mat-label>說</mat-label>
+                <mat-select [(ngModel)]="seletcteS">
+                    <mat-option *ngFor="let  lan  of Language" [value]="lan.level">
+                        {{lan.level}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            &nbsp;
+            <mat-form-field class="languageop">
+                <mat-label>讀</mat-label>
+                <mat-select [(ngModel)]="seletcteR">
+                    <mat-option *ngFor="let  lan  of Language" [value]="lan.level">
+                        {{lan.level}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            &nbsp;
+            <mat-form-field class="languageop">
+                <mat-label>寫</mat-label>
+                <mat-select [(ngModel)]="seletcteW">
+                    <mat-option *ngFor="let  lan  of Language" [value]="lan.level">
+                        {{lan.level}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <span *ngIf="otherlans == false">
+                <button mat-icon-button class="btn-primary" (click)="addlanguage()">
+                    <mat-icon>add_circle_outline</mat-icon>
+                </button>
+            </span>
+            <span *ngIf="otherlans">
+                <button mat-icon-button class="btn-warn" (click)="removelanguage()">
+                    <mat-icon>remove_circle_outline</mat-icon>
+                </button>
+            </span>
+            
+        </div>
+        <div *ngIf="otherlans">
+            <mat-form-field class="languageall">
+                <mat-label>其他外語</mat-label>
+                <mat-select [(ngModel)]="seletctL">
+                    <mat-option *ngFor="let  lans  of Languages" [value]="lans.Language">
+                        {{lans.Language}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            &nbsp;
+            <mat-form-field class="languageop">
+                <mat-label>聽</mat-label>
+                <mat-select [(ngModel)]="seletctaL">
+                    <mat-option *ngFor="let  lan  of Language" [value]="lan.level">
+                        {{lan.level}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            &nbsp;
+            <mat-form-field class="languageop">
+                <mat-label>說</mat-label>
+                <mat-select [(ngModel)]="seletctaS">
+                    <mat-option *ngFor="let  lan  of Language" [value]="lan.level">
+                        {{lan.level}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            &nbsp;
+            <mat-form-field class="languageop">
+                <mat-label>讀</mat-label>
+                <mat-select [(ngModel)]="seletctaR">
+                    <mat-option *ngFor="let  lan  of Language" [value]="lan.level">
+                        {{lan.level}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            &nbsp;
+            <mat-form-field class="languageop">
+                <mat-label>寫</mat-label>
+                <mat-select [(ngModel)]="seletctaW">
+                    <mat-option *ngFor="let  lan  of Language" [value]="lan.level">
+                        {{lan.level}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+</mat-card>
+<br>
+<mat-card>
+    <div>
+    專業證照：
+        <mat-form-field floatLabel="never">
+        <input matInput placeholder="請輸入與應徵職務類別之相關證照"  maxlength="25" [(ngModel)]="license">
+        </mat-form-field>
+        </div>
+    <div>
+        請檢附證明：
+        <table>
+            <td>
+                <div>
+                    <div
+                        ngfDrop
+                        multiple         = "1"
+                        selectable       = "1"
+                        [(validDrag)]    = "validComboDrag"
+                        [(files)]        = "files"
+                        accept           = ".pdf"
+                        [maxSize]        = "maxSize"
+                        [(lastInvalids)] = "lastInvalids"
+                        [(dragFiles)]    = "dragFiles"
+                        [class.invalid-drag] = "validComboDrag===false"
+                        [class.valid-drag]   = "validComboDrag"
+                        (filesChange) = "lastFileAt=getDate()"
+                        [fileDropDisabled] = "fileDropDisabled"
+                        style="width:200px"
+                    >
+                        <div class= "dropimg" *ngIf="files.length === 0" >
+                        <!-- <span class="droptext"><mat-icon>add</mat-icon></span> <br> -->
+                        <span >請匯入證書PDF檔</span>
+                        </div>
+                        <!-- <input type="file" class="dropzone" file-dropzone="[image/png, image/jpeg, image/gif]" file="image" placeholder="image" (change)="onSelectFile($event)"> -->
+                        <div *ngFor="let item of files; let i = index" >
+                            <div width="100">
+                                <div align="center"><img src="assets/image/pdf_icon.png" assept="img/*"></div>
+                                <div align="center">{{item.name}}</div>
+                            </div>
+                            <!-- <div *ngIf="['image/gif','image/png','image/jpeg'].indexOf(item.type)>=0">
+                                <img class="previewimg" *ngIf="slideimage"  [src]="slideimage" height="200" assept="img/*">
+                            </div> -->
+                        </div>
+                    
+                    </div>
+                </div>
+            </td>
+        </table>
+    </div>
+</mat-card>
+<br>
+<mat-card>
+    <div>
+      自傳：
+      <br>
+        <mat-form-field style="width: 80%" floatLabel="never">
+            <textarea matInput #message placeholder="請輸入內容" [(ngModel)]="self"  
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            maxlength="1500" 
+            maxrows="20"
+            ></textarea>
+            <mat-hint align="end">{{message.value.length}} / 1500</mat-hint>
+        </mat-form-field> 
+    </div>
+</mat-card>
+<br>
+<mat-card>
+    <div>
+      駕駛執照：
+    </div>
+    <div>
+      自備交通工具：
+        <mat-form-field floatLabel="never">
+         <mat-label>交通工具</mat-label>
+          <mat-select [(ngModel)]="tool">
+            <mat-option *ngFor="let  Tra  of Trans" [value]="Tra.Trans">
+                {{Tra.Trans}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
         
+    </div>
+</mat-card>
+<br>
+<mat-card>
+    <div>引薦人姓名：
+        <mat-form-field floatLabel="never">
+           <input matInput placeholder="請輸入引薦人姓名" [(ngModel)]="recommendN" maxlength="10">
+        </mat-form-field>
+    </div>
+    <div>引薦人服務單位與職稱：
+        <mat-form-field floatLabel="never">
+           <input matInput placeholder="請輸入引薦人服務單位"  maxlength="10"  [(ngModel)]="recommendP">
+        </mat-form-field>
+    </div>
+    <div>引薦人電話：
+        <mat-form-field class="phone">
+            <input matInput id="recommendNum" name="recommendNum" type="tel" οninput="value=value.replace(/[^\d]/g,'')" [(ngModel)]="recommendc">
+        </mat-form-field>
+    </div>
+    <div align="end">
+        <button mat-button align="end" (click)="submit()" class="btn-primary">Save</button>
+    </div>
+</mat-card>
+
+ 
+   
+<!--     <div *ngFor="let condition of conditions; let idx = index" >
+            <span>
+                <mat-form-field>
+                        <mat-label>條件選擇</mat-label>
+                        <mat-select [(ngModel)]="condition.type" name="conditionSelection">
+                          <mat-option *ngFor="let conType of conitionType" [value]="conType.value"  >
+                            {{conType.viewValue}}
+                          </mat-option>
+                        </mat-select>
+                        
+                 </mat-form-field>
+                 <mat-form-field  *ngIf="condition.type=='tacos-13'"> 
+                  <input  matInput name="condition_text" placeholder="請輸入自訂義項目" [(ngModel)]="condition.other" > 
+                </mat-form-field >
+                
+                 ：
+                <mat-form-field>
+                        <input matInput placeholder="內容" [(ngModel)]="condition.value">
+                    </mat-form-field>
+                <button mat-icon-button color="warn" (click)="add()"><mat-icon>add_circle_outline</mat-icon></button>
+                <button mat-icon-button color="primary" (click)="remove(idx)" [disabled]="conditions.length === 1"><mat-icon>remove_circle_outline</mat-icon></button>
+            </span>
+           
+        </div>
+ -->
+<!-- 
+        <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource"> -->
+  
+      <!-- Position Column -->
+ <!--      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      </ng-container> -->
+  
+      <!-- Name Column -->
+<!--       <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container> -->
+  
+      <!-- Weight Column -->
+<!--       <ng-container matColumnDef="weight">
+        <th mat-header-cell *matHeaderCellDef> Weight </th>
+        <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+      </ng-container> -->
+  
+      <!-- Symbol Column -->
+  <!--     <ng-container matColumnDef="symbol">
+        <th mat-header-cell *matHeaderCellDef> Symbol </th>
+        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div> -->
