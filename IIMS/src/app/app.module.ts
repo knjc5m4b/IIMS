@@ -49,7 +49,7 @@ const appRoutes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HomeModule,
+    LoginModule,
     FormsModule,
     ReactiveFormsModule,
     CommonModule
