@@ -4,13 +4,16 @@
     left: 0;
     z-index: 2;
     width: 100%  !important;
+
 } 
 
 
 mat-sidenav {
-    padding: 70px 20px;
+    padding: 70px 0px  0px;
     /* background-color: aquamarine; */
     min-width: 200px;
+    min-height: 560px;
+    line-height: 20px;
 }
 
 .body {
@@ -19,23 +22,58 @@ mat-sidenav {
 }
 
 .menu {
-    /* padding: 20px 30px 0; */
-    background-color: rgba(0, 0, 0, 0.8);
-    /* margin: 0; */
-}
-.menu:hover {
-    /* padding: 20px 30px 0; */
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgb(0, 0, 0);
+    text-align: center;
+    font-size: 15px;    
+    color: rgb(255, 255, 255);
     /* margin: 0; */
 }
 
-.menutext {
-    padding: 10px;
-    margin: 0;
-    font-size: 20px;    
-    color: rgba(255, 255, 255, 0.8);
-    text-align: left;
+.icon-briefcase {
+    font-size: 18px;
+    color: rgb(255, 255, 255);
 }
-.menutext:hover {
-    color: rgba(255, 255, 255, 0.3);
+.icon-briefcase:hover {
+    color:#fdbb30;
+    transition: color 250ms ease-in-out, background-color 250ms ease-in-out;
+}
+.icon-user{
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+}
+.icon-user:hover {
+    color:#fdbb30;
+    transition: color 250ms ease-in-out, background-color 250ms ease-in-out;
+}
+.icon-bubbles4{
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+}
+  .icon-bubbles4:hover {
+    color:#fdbb30;
+    transition: color 250ms ease-in-out, background-color 250ms ease-in-out;
+}
+.icon-address-book{
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+}
+.icon-address-book:hover {
+    color:#fdbb30;
+    transition: color 250ms ease-in-out, background-color 250ms ease-in-out;
+}
+  .icon-profile{
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+  }
+  .icon-profile:hover {
+    color:#fdbb30;
+    transition: color 250ms ease-in-out, background-color 250ms ease-in-out;
+}
+  .icon-cog{
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+  }
+  .icon-cog:hover {
+    color:#fdbb30;
+    transition: color 250ms ease-in-out, background-color 250ms ease-in-out;
 }
