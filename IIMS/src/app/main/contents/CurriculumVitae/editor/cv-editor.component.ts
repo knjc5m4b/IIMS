@@ -35,6 +35,7 @@ export class CVEditorComponent implements OnInit {
   @Input() school: string;
   @Input() department: string;
   @Input() license: string;
+  @Input() licensefile: any;
 
 
   // @Input() seletctcitydata: string;
@@ -83,6 +84,13 @@ export class CVEditorComponent implements OnInit {
   lastFileAt: Date;
   slideimage: any;
   otherlans: boolean;
+  pdffile: [];
+
+  pdfall: any;
+  pdfn: string;
+  pdft: string;
+  pdfs: string;
+  pdftmp: string;
 
   firstyear = 60 * 60 * 24 * 365 * 14 * 1000;
   secondyear = 60 * 60 * 24 * 366 * 4 * 1000;
@@ -174,6 +182,8 @@ export class CVEditorComponent implements OnInit {
     licensename: this.license, license: this.slideimage, antobiography: this.self, transportation: this.tool,
     rename: this.recommendN, reunits: this.recommendP, rephone: this.recommendc, review: this.review};
 
+  file: UploaderPDF = {file: this.pdfall, name: this.pdfn, type: this.pdft, size: this.pdfs, tmp_name: this.pdftmp};
+
   constructor(
     // private addressService: AddressService,
     private cvservice: CVService,
@@ -233,32 +243,76 @@ export class CVEditorComponent implements OnInit {
   //   );
   // }
 
-  getUrl(index: number) {
-    let i = 0;
-    for (i = 0; i < this.files.length; i + 1 ) {
-      console.log('i:', i, this.files[i]);
-      // console.log(this.images[i], this.slideimage);
-      // if (this.files.length > 1) {
-      //     this.files.splice(index, 1);
-      // }
-      if (this.files.length < 6) {
-          const reader = new FileReader();
-          reader.readAsDataURL(this.files[i]);
-          reader.onload = () => {
-              this.slideimage = reader.result;
-              // this.allimages.push(this.slideimage);
-              console.log(this.slideimage);
-              return this.slideimage;
-          };
-      }
-      i = i + 1;
-    }
+  onSelectFile(event) {
+    console.log(event, this.files.values, this.licensefile);
+    console.log(event.target.files[0], event.target.files[0].name);
+    console.log(event.target.files[0].tmp_name);
+
+    const reader = new FileReader();
+    reader.readAsDataURL(event.target.files[0]);
+    reader.onload = () => {
+        this.slideimage = reader.result;
+        // this.allimages.push(this.slideimage);
+        console.log(this.slideimage);
+        return this.slideimage;
+    };
+
+    // this.pdfall = event.target.files[0];
+    this.pdfn = event.target.files[0];
+    console.log(this.pdfn);
+
+    // this.pdft = event.target.files[0].type;
+    // this.pdfs = event.target.files[0].size;
+    // this.pdftmp = event.target.files[0].tmp_name;
   }
 
-    getDate(index: number) {
-      this.getUrl(index);
-      return new Date();
-    }
+  uploader() {
+    this.file.file = this.pdfall;
+    this.file.name = this.pdfn;
+    this.file.type = this.pdft;
+    this.file.size = this.pdfs;
+    this.file.tmp_name = this.pdftmp;
+    console.log(this.file);
+
+    this.cvservice.uploader(this.file).subscribe(
+      (response: any) => {
+          if (response != null) {
+              // alert(response) ;
+              location.href = './#Home' ;
+          } else {
+              alert('儲存失敗!');
+          }
+      },
+      (error: HttpErrorResponse) => this.cvservice.HandleError(error)
+    );
+  }
+
+  // getUrl(index: number) {
+  //   let i = 0;
+  //   for (i = 0; i < this.files.length; i + 1 ) {
+  //     console.log('i:', i, this.files[i]);
+  //     // console.log(this.images[i], this.slideimage);
+  //     // if (this.files.length > 1) {
+  //     //     this.files.splice(index, 1);
+  //     // }
+  //     if (this.files.length < 6) {
+  //         const reader = new FileReader();
+  //         reader.readAsDataURL(this.files[i]);
+  //         reader.onload = () => {
+  //             this.slideimage = reader.result;
+  //             // this.allimages.push(this.slideimage);
+  //             console.log(this.slideimage);
+  //             return this.slideimage;
+  //         };
+  //     }
+  //     i = i + 1;
+  //   }
+  // }
+
+    // getDate(index: number) {
+    //   this.getUrl(index);
+    //   return new Date();
+    // }
 
     reviewdata() {
       this.review = 1;
@@ -329,6 +383,13 @@ export class CVEditorComponent implements OnInit {
 export interface Education {
   row: number;
   education: string;
+}
+export interface UploaderPDF {
+  file: any;
+  name: string;
+  type: string;
+  size: string;
+  tmp_name: string;
 }
 
 export interface Personaldata {

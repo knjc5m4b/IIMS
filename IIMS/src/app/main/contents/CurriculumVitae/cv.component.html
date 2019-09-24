@@ -1,1 +1,8 @@
 <a class="main-nav__link" routerLink="/cveditor" routerLinkActive="active">editor</a>
+<!-- {{account}} {{password}} -->
+<mat-form-field floatLabel="never">
+    <input matInput maxlength="25" [(ngModel)]="name">
+</mat-form-field>
+<button mat-button color="primary" (click)="selectdata()">Select</button>
+
+{{alldata}}

@@ -37,6 +37,16 @@ export class CVService {
         return this.http.post(getURL, data);
     }
 
+    selectdata(name): Observable<any> {
+        const getURL = 'http://127.0.0.1/src/assets/db/select.php';
+        return this.http.post(getURL, name);
+    }
+
+    uploader(file): Observable<any> {
+        const getURL = 'http://127.0.0.1/src/assets/db/file_insert.php';
+        return this.http.post(getURL, file);
+    }
+
     HandleError(e: any): void {
         // console.log(e);
         alert(e.error.error);
