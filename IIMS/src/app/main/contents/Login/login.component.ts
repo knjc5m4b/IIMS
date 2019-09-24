@@ -1,4 +1,4 @@
-import { Component, Input} from '@angular/core';
+import { Component, Input, Output} from '@angular/core';
 import { MatDialog} from '@angular/material';
 import { CreateDialogComponent } from './create-dialog/create-dialog.component';
 import { LoginService } from 'src/app/common/login.service';
@@ -11,9 +11,9 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 
 export class LoginComponent {
-    @Input() account: string;
-    @Input() password: string;
-    @Input() usertype: string;
+    @Output() account: string;
+    password: string;
+    usertype: string;
     data: Accdata = {account: this.account, password: this.password, usertype: this.usertype};
 
     addaccount = '';

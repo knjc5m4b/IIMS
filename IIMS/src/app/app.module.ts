@@ -17,6 +17,12 @@ import { CVComponent } from './main/contents/CurriculumVitae/cv.component';
 import { CVModule } from './main/contents/CurriculumVitae/cv.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { PersonHomeComponent } from './main/contents/Person/homepage/person-home.component';
+import { InterviewHomeComponent } from './main/contents/Interview/homepage/interview-home.component';
+import { PersonModule } from './main/contents/Person/person.module';
+import { InterviewModule } from './main/contents/Interview/interview.module';
+import { QuestionComponent } from './main/contents/QA/question.component';
+import { QuestionModule } from './main/contents/QA/question.module';
 
 const appRoutes: Routes = [
 
@@ -25,6 +31,15 @@ const appRoutes: Routes = [
   },
   {   path: 'postjob',
       component: PostingJobComponent,
+  },
+  {   path: 'interview',
+      component: InterviewHomeComponent,
+  },
+  {   path: 'person',
+      component: PersonHomeComponent,
+  },
+  {   path: 'qa',
+      component: QuestionComponent,
   },
   {   path: 'home',
       component: HomeComponent,
@@ -60,7 +75,10 @@ const appRoutes: Routes = [
     PostJobModule,
     HomeModule,
     LoginModule,
-    CVModule
+    CVModule,
+    PersonModule,
+    InterviewModule,
+    QuestionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

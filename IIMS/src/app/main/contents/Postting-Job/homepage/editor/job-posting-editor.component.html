@@ -8,11 +8,11 @@
         <button mat-icon-button color="warn" (click)="add()"><mat-icon>add_circle_outline</mat-icon></button>
         <button mat-icon-button color="primary" (click)="remove(index)" [disabled]="texts.length === 0"><mat-icon>remove_circle_outline</mat-icon></button>
     </span>
-    <div *ngFor="let names of texts; let index of index">
+    <div *ngFor="let names of texts; let i of index">
         <label>職缺名稱： </label>
         <mat-form-field>
             <mat-label> 職缺名稱 </mat-label>
-            <input matInput id="name" [(ngModel)]="name" >
+            <input matInput id="name" [(ngModel)]="names.name" >
         </mat-form-field>
     </div>
 </div>
@@ -31,7 +31,7 @@
             <label>連絡電話： </label>
             <mat-form-field>
                 <mat-label> 連絡電話 </mat-label>
-                <input matInput id="phonenumber" [(ngModel)]="phonenumber" >
+                <input matInput id="phonenumber" [(ngModel)]="nums.phonenumber" >
             </mat-form-field>
         </div>
 </div>

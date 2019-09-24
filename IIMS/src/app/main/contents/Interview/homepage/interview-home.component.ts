@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
 
 @Component ({
-    selector: 'app-job-posting-editor',
-    templateUrl: './job-posting-editor.component.html',
-    styleUrls: ['./job-posting-editor.component.css']
+    selector: 'app-interview-home',
+    templateUrl: './interview-home.component.html',
+    styleUrls: ['./interview-home.component.css']
 })
-export class PostingJobEditorComponent {
+export class InterviewHomeComponent {
     @Input() name: string;
     @Input() phonenumber: string;
     texts: [] = [];

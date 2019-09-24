@@ -20,15 +20,15 @@ export class AppComponent implements OnInit {
         {value: 'role11' , viewValue: '查閱職缺', routerLink: '/postjob', url: 'icon-briefcase'},
       ]
     },
-    {value: 'role2' , viewValue: '檢視面試者名單', routerLink: '/postjob', url: 'icon-address-book', children: [
-      {value: 'role11' , viewValue: '進度回報', routerLink: '/postjob', url: 'icon-briefcase'},
-      {value: 'role11' , viewValue: '進度查詢', routerLink: '/postjob', url: 'icon-briefcase'},
-      {value: 'role11' , viewValue: '面試紀錄', routerLink: '/postjob', url: 'icon-briefcase'},
-      {value: 'role11' , viewValue: '面試記錄查閱', routerLink: '/postjob', url: 'icon-briefcase'},
+    {value: 'role2' , viewValue: '檢視面試者名單', routerLink: '/interview', url: 'icon-address-book', children: [
+      {value: 'role11' , viewValue: '進度回報', routerLink: '/interview', url: 'icon-briefcase'},
+      {value: 'role11' , viewValue: '進度查詢', routerLink: '/interview', url: 'icon-briefcase'},
+      {value: 'role11' , viewValue: '面試紀錄', routerLink: '/interview', url: 'icon-briefcase'},
+      {value: 'role11' , viewValue: '面試記錄查閱', routerLink: '/interview', url: 'icon-briefcase'},
     ]},
     {value: 'role3' , viewValue: '履歷表', routerLink: '/cv', url: 'icon-profile'},
-    {value: 'role4' , viewValue: '成員名單', routerLink: '/postjob', url: 'icon-user'},
-    {value: 'role4' , viewValue: 'Q&A', routerLink: '/postjob', url: 'icon-bubbles4'},
+    {value: 'role4' , viewValue: '成員名單', routerLink: '/person', url: 'icon-user'},
+    {value: 'role4' , viewValue: 'Q&A', routerLink: '/qa', url: 'icon-bubbles4'},
     {value: 'role4' , viewValue: 'Angela', routerLink: '/angela', url: 'icon-cog'},
     {value: 'role5' , viewValue: 'Yoriko', routerLink: '/yoriko', url: 'icon-cog'},
     {value: 'role6' , viewValue: 'Sindy', routerLink: '/sindy', url: 'icon-cog'},
