@@ -279,8 +279,12 @@
                             <!-- <span class="droptext"><mat-icon>add</mat-icon></span> <br> -->
                             <span >請匯入證書PDF檔</span>
                             <!-- </div> -->
-                            <input type="file" accept="application/pdf" placeholder="PDF" (change)="onSelectFile($event)" [(ngModel)]="licensefile">
-                            <button mat-icon-button (click)="uploader()"><mat-icon>arrow_upward</mat-icon></button>
+                            <!-- <input type="file" accept="application/pdf" placeholder="PDF" (change)="onSelectFile($event)" [(ngModel)]="licensefile"> -->
+                            <form action="file-insert.php" method="POST" enctype="multipart/form-data">
+                                <input id="filePDF" name="filePDF" type="file" accept="application/pdf" (change)="onSelectFile($event)">
+                                <!-- <input type="submit" class="button" value="Upload file" name="submit"> -->
+                            </form>
+                            <!-- <button mat-icon-button (click)="uploader()"><mat-icon>arrow_upward</mat-icon></button> -->
                             <!-- <div *ngFor="let item of files; let i = index" > -->
                                 <!-- <div width="100">
                                     <div align="center"><img src="assets/image/pdf_icon.png" assept="img/*"></div>

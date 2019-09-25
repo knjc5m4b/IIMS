@@ -19,7 +19,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     // observer: true,
     direction: 'horizontal',
     // threshold: 50,
-    spaceBetween: 30,
+    spaceBetween: 20,
     slidesPerView: 2,
     centeredSlides: true,
     navigation: true,

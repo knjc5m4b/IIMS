@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { LoginComponent } from '../Login/login.component';
-import { CVService } from 'src/app/common/cv.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { CVService } from 'src/app/common/cv.service';
 @Component({
     selector: 'app-cv-component',
     templateUrl: './cv.component.html',

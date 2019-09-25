@@ -5,7 +5,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { X2JS } from '../../../../../../node_modules/xml2js';
 
 
-import { HttpErrorResponse } from '@angular/common/http';
+import { HttpErrorResponse, HttpClient } from '@angular/common/http';
 import { AddCityDetail } from 'src/app/common/addCity_detail';
 import { AddAreaDetail } from 'src/app/common/addArea_detail';
 import * as intlTelInput from '../../../../../../node_modules/intl-tel-input';
@@ -182,13 +182,25 @@ export class CVEditorComponent implements OnInit {
     licensename: this.license, license: this.slideimage, antobiography: this.self, transportation: this.tool,
     rename: this.recommendN, reunits: this.recommendP, rephone: this.recommendc, review: this.review};
 
-  file: UploaderPDF = {file: this.pdfall, name: this.pdfn, type: this.pdft, size: this.pdfs, tmp_name: this.pdftmp};
+  file: UploaderPDF = {name: this.pdfn, type: this.pdft, size: this.pdfs, tmp_name: this.pdftmp};
+  formData = new FormData();
+  filestest: any;
 
+
+  headers: Headers;
+
+
+
+  // uploadphp = 'file_insert.php';
   constructor(
     // private addressService: AddressService,
+    private http: HttpClient,
     private cvservice: CVService,
     injector: Injector,
-  ) {}
+  ) {
+    this.headers = new Headers();
+
+  }
 
   ngOnInit() {
     console.log('開始');
@@ -243,31 +255,77 @@ export class CVEditorComponent implements OnInit {
   //   );
   // }
 
+//   fileUpload(event) {
+//     this.slideimage = this.formData.append('file', event.target.files[0]);
+//     // const getURL = 'assets/pdf';
+//     // this.httpClient.post(getURL, this.formData).subscribe(
+//     //     (response: any) => {
+//     //         if (response != null) {
+//     //             alert('儲存成功') ;
+//     //             location.href = './#Home' ;
+//     //         } else {
+//     //             alert('儲存失敗!');
+//     //         }
+//     //     });
+//     console.log(this.formData);
+// }
+  // onsubmit() {
+  //   console.log(this.filestest);
+
+  //   this.cvservice.uploaderd().subscribe(
+  //     (response: any) => {
+  //         if (response != null) {
+  //             alert(response) ;
+  //             // location.href = './#Home' ;
+  //         } else {
+  //             alert('儲存失敗!');
+  //         }
+  //     },
+  //     (error: HttpErrorResponse) => this.cvservice.HandleError(error)
+  //   );
+  // }
+
   onSelectFile(event) {
-    console.log(event, this.files.values, this.licensefile);
-    console.log(event.target.files[0], event.target.files[0].name);
-    console.log(event.target.files[0].tmp_name);
+    // console.log(event.target.files[0]);
+    this.formData.append('files', event.target.files[0]);
+    const getURL = 'http://127.0.0.1/src/assets/db/file-insert.php';
+    this.http.post(getURL, this.filestest, {
+      // headers: this.headers.set('Content-Type', 'multipart/form-data');
+    }).subscribe((response: any) => {
+              if (response != null) {
+                  alert(response) ;
+                  // location.href = './#Home' ;
+              } else {
+                  alert('儲存失敗!');
+              }
+          },
+          (error: HttpErrorResponse) => this.cvservice.HandleError(error));
 
-    const reader = new FileReader();
-    reader.readAsDataURL(event.target.files[0]);
-    reader.onload = () => {
-        this.slideimage = reader.result;
-        // this.allimages.push(this.slideimage);
-        console.log(this.slideimage);
-        return this.slideimage;
-    };
+    // const allfile = event.target.files[0];
 
-    // this.pdfall = event.target.files[0];
-    this.pdfn = event.target.files[0];
-    console.log(this.pdfn);
+    // const formData = new FormData();
+    // formData.append('file', allfile);
+
+    // console.log(this.formData);
+
+    // const reader = new FileReader();
+    // reader.readAsDataURL(event.target.files[0]);
+    // reader.onload = () => {
+    //     this.slideimage = reader.result;
+    //     // this.allimages.push(this.slideimage);
+    //     console.log(this.slideimage);
+    //     return this.slideimage;
+    // };
+
+    // this.pdfn = event.target.files[0].name;
+    // console.log(this.pdfn);
 
     // this.pdft = event.target.files[0].type;
     // this.pdfs = event.target.files[0].size;
-    // this.pdftmp = event.target.files[0].tmp_name;
+    // this.pdftmp = '/Upload/' + event.target.files[0].lastModifiedDate + '.tmp';
   }
 
   uploader() {
-    this.file.file = this.pdfall;
     this.file.name = this.pdfn;
     this.file.type = this.pdft;
     this.file.size = this.pdfs;
@@ -369,7 +427,7 @@ export class CVEditorComponent implements OnInit {
               (response: any) => {
                   if (response != null) {
                       // alert(response) ;
-                      location.href = './#Home' ;
+                      location.href = './cv' ;
                   } else {
                       alert('儲存失敗!');
                   }
@@ -385,7 +443,7 @@ export interface Education {
   education: string;
 }
 export interface UploaderPDF {
-  file: any;
+  // file: any;
   name: string;
   type: string;
   size: string;
@@ -409,7 +467,7 @@ export interface Personaldata {
   position: string;
   csalary: string;
   licensename: string;
-  license: string;
+  license: JSON;
   antobiography: string;
   transportation: string;
   rename: string;

@@ -22,16 +22,17 @@ accept           = "image/*"
 (filesChange) = "getUrl()"
 [fileDropDisabled] = "fileDropDisabled"></div> -->
 
-
-    <input type="file" (change)="imgupload($event)">
-    <div *ngIf="slideimage">
+    <form action="upload" method="post" enctype="multipart/form-data">
+        <input name="filePDF" type="file" (change)="fileUpload($event)" accept="application/pdf">
+    </form>
+    <!-- <div *ngIf="slideimage">
         <div class="imaged">
             <div *ngIf="allimages.length > 0">
                 <div *ngFor="let item of allimages; let index = index">
                     <div class="imagebtn" align="right"><button mat-icon-button class="deletebtn" (click)="deleteimg(index)"><mat-icon>cancel</mat-icon></button></div>
                     <img class="previewimg" [src]="item">
                 </div>
-            </div>
+            </div> -->
             <!-- <div *ngIf="allimages.length > 1">
                 <div class="imagebtn" align="right"><button mat-icon-button class="deletebtn" (click)="deleteimg(1)"><mat-icon>cancel</mat-icon></button></div>
                 <img class="previewimg" [src]="allimages[1]">
@@ -40,5 +41,5 @@ accept           = "image/*"
                 <div class="imagebtn" align="right"><button mat-icon-button class="deletebtn" (click)="deleteimg(2)"><mat-icon>cancel</mat-icon></button></div>
                 <img class="previewimg" [src]="allimages[2]">
             </div> -->
-        </div>
-    </div>
+        <!-- </div>
+    </div> -->

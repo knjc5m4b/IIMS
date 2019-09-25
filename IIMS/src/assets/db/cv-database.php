@@ -21,7 +21,7 @@
     $position = isset($objData->position) ? $objData->position : '' ;
     $csalary = isset($objData->csalary) ? $objData->csalary : '' ;
     $licensename = isset($objData->licensename) ? $objData->licensename : '' ;
-    $license = isset($objData->license) ? $objData->license : '' ;
+    // $license = isset($objData->license) ? $objData->license : '' ;
     $antobiography = isset($objData->antobiography) ? $objData->antobiography : '' ;
     $transportation = isset($objData->transportation) ? $objData->transportation : '' ;
     $rename = isset($objData->rename) ? $objData->rename : '' ;
@@ -41,15 +41,17 @@
     $seletctaR = isset($objData->seletctaR) ? $objData->seletctaR : '' ;
     $seletctaW = isset($objData->seletctaW) ? $objData->seletctaW : '' ;
     $review = isset($objData->review) ? $objData->review : '' ;
+
+
     // $objResponse = "資料庫連線";
     $sql="INSERT INTO `resume` (`FamilyName`, `Givenname`, `Gender`, `Born`, `Service`, `Phone`, `Mail`, `Address`, 
     `E_School`, `E_department`, `Salary`, `Experience`, `C_category`, `C_Position`, `C_Salary`, `seletctcL`, `seletctcS`, `seletctcR`, `seletctcW`, 
     `seletcteL`, `seletcteS`, `seletcteR`, `seletcteW`, `seletctL`, `seletctaL`, `seletctaS`, `seletctaR`, `seletctaW`, 
-    `License_name`, `License`, `Autobiography`, `Transportation`, `Re_name`, `Re_units`, `Re_phone`, `Review`) 
+    `License_name`, `Autobiography`, `Transportation`, `Re_name`, `Re_units`, `Re_phone`, `Review`) 
     VALUES ('$familyname', '$givenname', '$gender', '$born', '$service', '$phone', '$email', '$address', 
     '$school', '$department', '$salary', '$experience', '$category', '$position', '$csalary', '$seletctcL', '$seletctcS', '$seletctcR', '$seletctcW', 
     '$seletcteL', '$seletcteS', '$seletcteR', '$seletcteW', '$seletctL', '$seletctaL', '$seletctaS', '$seletctaR', '$seletctaW', 
-    '$licensename', '$license', '$antobiography', '$transportation', '$rename', '$reunits', '$rephone', '$review')";
+    '$licensename', '$antobiography', '$transportation', '$rename', '$reunits', '$rephone', '$review')";
     
     if (mysqli_query($conn, $sql)) {
         $objResponse = "儲存成功" ;
