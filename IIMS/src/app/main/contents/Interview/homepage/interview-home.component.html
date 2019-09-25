@@ -1,0 +1,10 @@
+<mat-form-field>
+    <mat-label>條件選擇</mat-label>
+    <mat-select [(ngModel)]="status" name="conditionSelection">
+      <mat-option *ngFor="let staType of statusType" [value]="staType.viewValue"  >
+        {{staType.viewValue}}
+      </mat-option>
+    </mat-select>
+</mat-form-field>
+<button mat-icon-button (click)="selectdata()"><mat-icon>search</mat-icon></button>
+{{alldata}}

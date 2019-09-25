@@ -8,7 +8,7 @@ import { NgxXml2jsonService } from 'ngx-xml2json';
     providedIn: 'root'
 })
 
-export class CVService {
+export class InterviewService {
 
     constructor(
         private http: HttpClient,
@@ -32,24 +32,9 @@ export class CVService {
     //     });
     // }
 
-    insertUserData(data): Observable<any> {
-        const getURL = 'http://127.0.0.1/src/assets/db/cv-database.php';
+    selectdata(data): Observable<any> {
+        const getURL = 'http://127.0.0.1/src/assets/db/selectinterview.php';
         return this.http.post(getURL, data);
-    }
-
-    selectdata(name): Observable<any> {
-        const getURL = 'http://127.0.0.1/src/assets/db/selectresume.php';
-        return this.http.post(getURL, name);
-    }
-
-    uploader(file): Observable<any> {
-        const getURL = 'http://127.0.0.1/src/assets/db/file-insert.php';
-        return this.http.post(getURL, file);
-    }
-
-    uploaderd(): Observable<any> {
-        const getURL = 'http://127.0.0.1/src/assets/db/file-insert.php';
-        return this.http.get<any>(getURL);
     }
 
     HandleError(e: any): void {
