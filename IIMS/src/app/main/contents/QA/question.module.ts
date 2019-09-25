@@ -8,6 +8,7 @@ import { FileDropModule } from 'ngx-file-drop';
 import { ngfModule } from 'angular-file';
 import { MessageModule } from 'src/app/common/message-dialog/message.module';
 import { QuestionComponent } from './question.component';
+import { CommonModule } from '@angular/common';
 
 const Routes: Routes = [
     {   path: '',
@@ -25,6 +26,7 @@ const Routes: Routes = [
       ReactiveFormsModule,
       FormsModule,
       FileDropModule,
+      CommonModule,
       ngfModule,
       MessageModule
     ],

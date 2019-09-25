@@ -1,0 +1,76 @@
+
+<mat-accordion>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+            問題一
+            </mat-panel-title>
+            <mat-panel-description>
+            {{Q1}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div>
+            問題
+            <mat-form-field>
+                <input matInput placeholder="請輸入問題" [(ngModel)]="names.Q1" (change)="changed($event)">
+            </mat-form-field>
+        </div>
+            <br>
+        <div>
+            答案
+            <mat-form-field>
+                <input matInput placeholder="請輸入答案" [(ngModel)]="A1">
+            </mat-form-field>
+        </div>
+    </mat-expansion-panel>
+    <button mat-icon-button color="warn" (click)="add()"><mat-icon>add_circle_outline</mat-icon></button>
+    <button mat-icon-button color="primary" (click)="remove(index)"><mat-icon>remove_circle_outline</mat-icon></button>
+    <div *ngFor="let names of texts; let i of index">
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    問題二
+                </mat-panel-title>
+                <mat-panel-description>
+                    {{Q2}}
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div>
+                問題
+                <mat-form-field>
+                    <input matInput placeholder="請輸入問題" [(ngModel)]="Q2">
+                </mat-form-field>
+            </div>
+                <br>
+            <div>
+                答案
+                <mat-form-field>
+                    <input matInput placeholder="請輸入答案" [(ngModel)]="A2">
+                </mat-form-field>
+            </div>
+        </mat-expansion-panel>
+        </div>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                問題二
+            </mat-panel-title>
+            <mat-panel-description>
+                {{Q3}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div>
+            問題
+            <mat-form-field>
+                <input matInput placeholder="請輸入問題" [(ngModel)]="Q3">
+            </mat-form-field>
+        </div>
+            <br>
+        <div>
+            答案
+            <mat-form-field>
+                <input matInput placeholder="請輸入答案" [(ngModel)]="A3">
+            </mat-form-field>
+        </div>
+    </mat-expansion-panel>
+</mat-accordion>
